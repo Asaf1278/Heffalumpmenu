@@ -6,11 +6,13 @@
     <title>Heffalump Menü</title>
     <style>
         :root {
-            --bg-color: #f7f6f2;
-            --text-color: #333;
-            --accent-color: #2c2c2c;
-            --box-bg: #ffffff;
-            --border-color: #eaeaea;
+            /* Renk Paleti - Pastel Turuncu ve Beyaz */
+            --bg-color: #FCF9F6;       /* Çok hafif sıcak beyaz/krem arka plan */
+            --text-color: #4A4A4A;     /* Yumuşak koyu gri (okunabilirlik için) */
+            --primary-orange: #FFA060; /* Ana pastel turuncu */
+            --gradient-orange: linear-gradient(135deg, #FFB98A 0%, #FF9A55 100%); /* Modern renk geçişi */
+            --box-bg: #FFFFFF;         /* Saf beyaz kutular */
+            --border-color: #F0E9E4;   /* Çok ince ayırıcı çizgiler */
         }
 
         * {
@@ -24,39 +26,38 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
-            padding-bottom: 50px;
+            padding-bottom: 60px;
         }
 
         /* Header / Logo Alanı */
         header {
             text-align: center;
-            padding: 40px 20px 20px;
-            background-color: var(--box-bg);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
+            padding: 40px 20px 30px;
+            background-color: var(--bg-color);
         }
 
         .logo {
-            max-width: 150px;
+            max-width: 140px;
             height: auto;
-            margin-bottom: 10px;
-            /* Eğer logonuz yoksa aşağıdaki satırı silebilirsiniz */
+            margin-bottom: 15px;
             border-radius: 50%; 
+            box-shadow: 0 8px 20px rgba(255, 154, 85, 0.2); /* Logoya turuncu yumuşak gölge */
         }
 
         h1 {
-            font-size: 28px;
-            letter-spacing: 2px;
+            font-size: 30px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--accent-color);
+            color: var(--primary-orange);
+            font-weight: 800;
         }
 
         p.subtitle {
-            font-size: 14px;
-            font-weight: 500;
-            color: #666;
+            font-size: 13px;
+            font-weight: 600;
+            color: #999;
             margin-top: 5px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         /* Menü Konteyner */
@@ -66,59 +67,72 @@
             padding: 0 15px;
         }
 
-        /* Akordiyon (Kategoriler) */
+        /* Akordiyon (Kategoriler) - Modernize Edilmiş Tuşlar */
         details {
             background-color: var(--box-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border-radius: 16px; /* Modern yuvarlak köşeler */
+            margin-bottom: 18px;
+            box-shadow: 0 6px 16px rgba(255, 154, 85, 0.08); /* Hafif turuncu gölge */
             overflow: hidden;
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 154, 85, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         details[open] {
-            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 12px 24px rgba(255, 154, 85, 0.15);
+            transform: translateY(-3px); /* Açıldığında hafif yukarı kalkma hissi */
+            border-color: var(--primary-orange);
         }
 
         summary {
+            background: var(--gradient-orange);
+            color: #ffffff;
             font-size: 16px;
             font-weight: 700;
-            padding: 18px 20px;
+            padding: 20px 24px;
             cursor: pointer;
             list-style: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: var(--box-bg);
-            color: var(--accent-color);
             text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
         }
 
         summary::-webkit-details-marker {
             display: none;
         }
 
+        /* Modern Ok İşareti */
         summary::after {
-            content: '+';
-            font-size: 20px;
-            transition: transform 0.3s ease;
+            content: '❯'; 
+            font-size: 16px;
+            color: #ffffff;
+            transition: transform 0.4s ease;
+        }
+
+        details[open] summary {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
         }
 
         details[open] summary::after {
-            transform: rotate(45deg);
+            transform: rotate(90deg);
         }
 
         /* Ürün Listesi */
         .item-list {
-            padding: 0 20px 20px;
+            padding: 15px 24px 24px;
+            background-color: var(--box-bg);
         }
 
         .item {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            padding: 12px 0;
+            padding: 14px 0;
             border-bottom: 1px dashed var(--border-color);
         }
 
@@ -131,6 +145,7 @@
             font-size: 15px;
             flex: 1;
             padding-right: 15px;
+            color: var(--text-color);
         }
 
         .item-desc {
@@ -138,28 +153,31 @@
             font-size: 12px;
             color: #888;
             font-weight: normal;
-            margin-top: 3px;
+            margin-top: 4px;
+            font-style: italic;
         }
 
         .item-price {
             font-weight: 700;
-            font-size: 15px;
+            font-size: 16px;
+            color: var(--primary-orange);
             white-space: nowrap;
         }
 
         .size-header {
             display: flex;
             justify-content: flex-end;
-            font-size: 11px;
-            color: #888;
-            padding-bottom: 5px;
+            font-size: 12px;
+            color: #999;
+            padding-bottom: 8px;
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 5px;
+            font-weight: 600;
         }
         
         .size-header span {
             margin-left: 15px;
-            width: 45px;
+            width: 50px;
             text-align: center;
         }
 
@@ -168,7 +186,7 @@
 <body>
 
     <header>
-        <!-- BURAYA KENDİ LOGONUZUN İSMİNİ VEYA LİNKİNİ YAZIN -->
+        <!-- Logo adı daha önceki konuşmamızdaki gibi "logo.png" olarak ayarlı -->
         <img src="logo.png" alt="Heffalump Logo" class="logo" onerror="this.style.display='none'"> 
         <h1>HEFFALUMP</h1>
         <p class="subtitle">ÖZENLE HAZIRLANMIŞ LEZZETLER</p>
@@ -181,8 +199,8 @@
             <summary>SICAK İÇECEKLER</summary>
             <div class="item-list">
                 <div class="size-header">
-                    <span>Küçük ☕</span>
-                    <span>Büyük 🥤</span>
+                    <span>Küçük</span>
+                    <span>Büyük</span>
                 </div>
                 <div class="item"><div class="item-name">Espresso</div><div class="item-price">120₺ / 140₺</div></div>
                 <div class="item"><div class="item-name">Americano</div><div class="item-price">180₺ / 200₺</div></div>
@@ -205,7 +223,7 @@
 
         <!-- SOĞUK KAHVELER -->
         <details>
-            <summary>SOĞUK KAHVELER <span style="font-size:12px; font-weight:normal;">(STANDART)</span></summary>
+            <summary>SOĞUK KAHVELER</summary>
             <div class="item-list">
                 <div class="item"><div class="item-name">Ice Americano</div><div class="item-price">210₺</div></div>
                 <div class="item"><div class="item-name">Ice Latte</div><div class="item-price">250₺</div></div>
@@ -307,7 +325,6 @@
     </main>
 
     <script>
-        // İsteğe bağlı: Bir kategori açıldığında diğerlerini kapatma özelliği
         const details = document.querySelectorAll("details");
         details.forEach((targetDetail) => {
             targetDetail.addEventListener("click", () => {
