@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heffalump Menü</title>
-    <link rel="icon" href="logo.png" type="image/png">
+    <!-- Sekme İkonu (Favicon) -->
+    <link rel="icon" href="logo.png?v=2" type="image/png">
+    
     <style>
         :root {
             /* Renk Paleti - Pastel Turuncu ve Beyaz */
-            --bg-color: #FCF9F6;       /* Çok hafif sıcak beyaz/krem arka plan */
-            --text-color: #4A4A4A;     /* Yumuşak koyu gri (okunabilirlik için) */
-            --primary-orange: #FFA060; /* Ana pastel turuncu */
-            --gradient-orange: linear-gradient(135deg, #FFB98A 0%, #FF9A55 100%); /* Modern renk geçişi */
-            --box-bg: #FFFFFF;         /* Saf beyaz kutular */
-            --border-color: #F0E9E4;   /* Çok ince ayırıcı çizgiler */
+            --bg-color: #FCF9F6;       
+            --text-color: #4A4A4A;     
+            --primary-orange: #FFA060; 
+            --gradient-orange: linear-gradient(135deg, #FFB98A 0%, #FF9A55 100%); 
+            --box-bg: #FFFFFF;         
+            --border-color: #F0E9E4;   
         }
 
         * {
@@ -42,7 +44,7 @@
             height: auto;
             margin-bottom: 15px;
             border-radius: 50%; 
-            box-shadow: 0 8px 20px rgba(255, 154, 85, 0.2); /* Logoya turuncu yumuşak gölge */
+            box-shadow: 0 8px 20px rgba(255, 154, 85, 0.2); 
         }
 
         h1 {
@@ -71,17 +73,16 @@
         /* Akordiyon (Kategoriler) - Modernize Edilmiş Tuşlar */
         details {
             background-color: var(--box-bg);
-            border-radius: 16px; /* Modern yuvarlak köşeler */
+            border-radius: 16px; 
             margin-bottom: 18px;
-            box-shadow: 0 6px 16px rgba(255, 154, 85, 0.08); /* Hafif turuncu gölge */
-            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(255, 154, 85, 0.08); 
             border: 1px solid rgba(255, 154, 85, 0.1);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         details[open] {
             box-shadow: 0 12px 24px rgba(255, 154, 85, 0.15);
-            transform: translateY(-3px); /* Açıldığında hafif yukarı kalkma hissi */
+            transform: translateY(-3px); 
             border-color: var(--primary-orange);
         }
 
@@ -123,10 +124,29 @@
             transform: rotate(90deg);
         }
 
-        /* Ürün Listesi */
+        /* Ürün Listesi Animasyonu ve Tasarımı */
         .item-list {
             padding: 15px 24px 24px;
             background-color: var(--box-bg);
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+        }
+
+        /* Yumuşak Açılma Efekti (Buraya eklendi) */
+        details[open] .item-list {
+            animation: smoothSlideDown 0.4s ease-out forwards;
+            transform-origin: top center;
+        }
+
+        @keyframes smoothSlideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .item {
@@ -187,7 +207,6 @@
 <body>
 
     <header>
-        <!-- Logo adı daha önceki konuşmamızdaki gibi "logo.png" olarak ayarlı -->
         <img src="logo.png" alt="Heffalump Logo" class="logo" onerror="this.style.display='none'"> 
         <h1>HEFFALUMP</h1>
         <p class="subtitle">ÖZENLE HAZIRLANMIŞ LEZZETLER</p>
