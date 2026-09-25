@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heffalump Menü</title>
+    <style>
+        :root {
+            --bg-color: #f7f6f2;
+            --text-color: #333;
+            --accent-color: #2c2c2c;
+            --box-bg: #ffffff;
+            --border-color: #eaeaea;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* Header / Logo Alanı */
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            background-color: var(--box-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+            /* Eğer logonuz yoksa aşağıdaki satırı silebilirsiniz */
+            border-radius: 50%; 
+        }
+
+        h1 {
+            font-size: 28px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+        }
+
+        p.subtitle {
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        /* Menü Konteyner */
+        .menu-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Akordiyon (Kategoriler) */
+        details {
+            background-color: var(--box-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        details[open] {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+        }
+
+        summary {
+            font-size: 16px;
+            font-weight: 700;
+            padding: 18px 20px;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--box-bg);
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        /* Ürün Listesi */
+        .item-list {
+            padding: 0 20px 20px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        .item-name {
+            font-weight: 600;
+            font-size: 15px;
+            flex: 1;
+            padding-right: 15px;
+        }
+
+        .item-desc {
+            display: block;
+            font-size: 12px;
+            color: #888;
+            font-weight: normal;
+            margin-top: 3px;
+        }
+
+        .item-price {
+            font-weight: 700;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+
+        .size-header {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 11px;
+            color: #888;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 5px;
+        }
+        
+        .size-header span {
+            margin-left: 15px;
+            width: 45px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- BURAYA KENDİ LOGONUZUN İSMİNİ VEYA LİNKİNİ YAZIN -->
+        <img src="logo.png" alt="Heffalump Logo" class="logo" onerror="this.style.display='none'"> 
+        <h1>HEFFALUMP</h1>
+        <p class="subtitle">ÖZENLE HAZIRLANMIŞ LEZZETLER</p>
+    </header>
+
+    <main class="menu-container">
+
+        <!-- SICAK İÇECEKLER -->
+        <details>
+            <summary>SICAK İÇECEKLER</summary>
+            <div class="item-list">
+                <div class="size-header">
+                    <span>Küçük ☕</span>
+                    <span>Büyük 🥤</span>
+                </div>
+                <div class="item"><div class="item-name">Espresso</div><div class="item-price">120₺ / 140₺</div></div>
+                <div class="item"><div class="item-name">Americano</div><div class="item-price">180₺ / 200₺</div></div>
+                <div class="item"><div class="item-name">Latte</div><div class="item-price">210₺ / 235₺</div></div>
+                <div class="item"><div class="item-name">Capicino</div><div class="item-price">210₺ / 235₺</div></div>
+                <div class="item"><div class="item-name">Flat White</div><div class="item-price">230₺ / 240₺</div></div>
+                <div class="item"><div class="item-name">Spanish Latte</div><div class="item-price">240₺ / 265₺</div></div>
+                <div class="item"><div class="item-name">Salted Caramel Latte</div><div class="item-price">245₺ / 270₺</div></div>
+                <div class="item"><div class="item-name">Mocha</div><div class="item-price">230₺ / 255₺</div></div>
+                <div class="item"><div class="item-name">White Mocha</div><div class="item-price">230₺ / 255₺</div></div>
+                <div class="item"><div class="item-name">Nutella Latte</div><div class="item-price">250₺ / 275₺</div></div>
+                <div class="item"><div class="item-name">Toffy Nut Latte</div><div class="item-price">240₺ / 270₺</div></div>
+                <div class="item"><div class="item-name">Ginger Bread Latte</div><div class="item-price">240₺ / 270₺</div></div>
+                <div class="item"><div class="item-name">Pumpkin Spys Latte</div><div class="item-price">240₺ / 270₺</div></div>
+                <div class="item"><div class="item-name">Lotus Latte</div><div class="item-price">260₺ / 280₺</div></div>
+                <div class="item"><div class="item-name">Tiramisu Latte</div><div class="item-price">240₺ / 270₺</div></div>
+                <div class="item"><div class="item-name">Pumpkin Spys Maciato</div><div class="item-price">250₺ / 280₺</div></div>
+            </div>
+        </details>
+
+        <!-- SOĞUK KAHVELER -->
+        <details>
+            <summary>SOĞUK KAHVELER <span style="font-size:12px; font-weight:normal;">(STANDART)</span></summary>
+            <div class="item-list">
+                <div class="item"><div class="item-name">Ice Americano</div><div class="item-price">210₺</div></div>
+                <div class="item"><div class="item-name">Ice Latte</div><div class="item-price">250₺</div></div>
+                <div class="item"><div class="item-name">Ice Capicino</div><div class="item-price">250₺</div></div>
+                <div class="item"><div class="item-name">Ice White Mocha</div><div class="item-price">270₺</div></div>
+                <div class="item"><div class="item-name">Ice Mocha</div><div class="item-price">270₺</div></div>
+                <div class="item"><div class="item-name">Lotus Latte</div><div class="item-price">290₺</div></div>
+                <div class="item"><div class="item-name">Ice Nutella Latte</div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name">Ice Tiramisu Latte</div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name">Ice Italian Latte</div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name">Ice Brown Sugar Latte</div><div class="item-price">260₺</div></div>
+                <div class="item"><div class="item-name">Ice Waffle Latte</div><div class="item-price">290₺</div></div>
+            </div>
+        </details>
+
+        <!-- REFRESHALAR -->
+        <details>
+            <summary>REFRESHALAR</summary>
+            <div class="item-list">
+                <div class="item"><div class="item-name">Cool Lime/Berry Hibiscus</div><div class="item-price">260₺</div></div>
+                <div class="item"><div class="item-name">Fresh Lime</div><div class="item-price">270₺</div></div>
+                <div class="item"><div class="item-name">Mango Ananas/Orange Mango</div><div class="item-price">260₺</div></div>
+                <div class="item"><div class="item-name">Zeki Müren</div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name">Mango Dragon Fruit</div><div class="item-price">270₺</div></div>
+                <div class="item"><div class="item-name">Virgin Mojito / Limonata</div><div class="item-price">260₺ / 190₺</div></div>
+                <div class="item"><div class="item-name">Mango Passion Fruit</div><div class="item-price">270₺</div></div>
+                <div class="item"><div class="item-name">Cherry Refresha <span class="item-desc">El yapımı Reçelli</span></div><div class="item-price">280₺</div></div>
+            </div>
+        </details>
+
+        <!-- MATCHA & UBE -->
+        <details>
+            <summary>MATCHA & UBE</summary>
+            <div class="item-list">
+                <div class="item"><div class="item-name">Matcha Latte</div><div class="item-price">260₺</div></div>
+                <div class="item"><div class="item-name">Strawberry Matcha Latte</div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name">Vanilla Matcha Latte</div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name">Ube Latte</div><div class="item-price">260₺</div></div>
+                <div class="item"><div class="item-name">Ube Matcha Latte</div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name">Ube Coconut Latte</div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name">Ube White Choco. Latte</div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name">Mekselina Blossom</div><div class="item-price">290₺</div></div>
+            </div>
+        </details>
+
+        <!-- DEMLEME İÇECEKLER -->
+        <details>
+            <summary>DEMLEME İÇECEKLER</summary>
+            <div class="item-list">
+                <div class="item"><div class="item-name">Salep</div><div class="item-price">240₺ / 250₺</div></div>
+                <div class="item"><div class="item-name">Türk Kahvesi</div><div class="item-price">160₺ / 190₺</div></div>
+                <div class="item"><div class="item-name">Çay</div><div class="item-price">80₺ / 90₺</div></div>
+                <div class="item"><div class="item-name">Sıcak Çikolata</div><div class="item-price">220₺ / 230₺</div></div>
+                <div class="item"><div class="item-name">Chia Tea Latte</div><div class="item-price">230₺ / 240₺</div></div>
+                <div class="item"><div class="item-name">V-60 Latte</div><div class="item-price">250₺ / 260₺</div></div>
+                <div class="item"><div class="item-name">Bitki Çayları</div><div class="item-price">180₺</div></div>
+            </div>
+        </details>
+        
+        <!-- BLENDED İÇECEKLER -->
+        <details>
+            <summary>BLENDED İÇECEKLER</summary>
+            <div class="item-list">
+                <div class="item"><div class="item-name">Çikolata/Çilek/Karamel Milkshake</div><div class="item-price">270₺</div></div>
+                <div class="item"><div class="item-name">Lotus Banana Milkshake</div><div class="item-price">290₺</div></div>
+                <div class="item"><div class="item-name">Afogato</div><div class="item-price">210₺</div></div>
+                <div class="item"><div class="item-name">Espresso Frappe</div><div class="item-price">250₺</div></div>
+                <div class="item"><div class="item-name">Çikolata/Karamel Frappe</div><div class="item-price">270₺</div></div>
+                <div class="item"><div class="item-name">Lotus Frappe</div><div class="item-price">290₺</div></div>
+                <div class="item"><div class="item-name">Orman Meyve/Mango Frozen</div><div class="item-price">260₺</div></div>
+            </div>
+        </details>
+
+        <!-- TATLILAR -->
+        <details>
+            <summary>TATLILAR</summary>
+            <div class="item-list">
+                <div class="item"><div class="item-name">Çilekli Mug</div><div class="item-price">350₺</div></div>
+                <div class="item"><div class="item-name">Polka / Dubai Gecesi</div><div class="item-price">380₺</div></div>
+                <div class="item"><div class="item-name">San Sebastian/Cheesecake</div><div class="item-price">320₺ / 350₺</div></div>
+                <div class="item"><div class="item-name">Lotus Tart / Spoonfull</div><div class="item-price">370₺ / 360₺</div></div>
+                <div class="item"><div class="item-name">Lotus Mono Pasta</div><div class="item-price">420₺</div></div>
+                <div class="item"><div class="item-name">Tiramisu Box</div><div class="item-price">360₺</div></div>
+                <div class="item"><div class="item-name">Waffle Bowl + İçecek</div><div class="item-price">380₺</div></div>
+                <div class="item"><div class="item-name">Bakırköyün Delisi <span class="item-desc">(Tiramisu Waf.)</span></div><div class="item-price">395₺</div></div>
+            </div>
+        </details>
+
+        <!-- KAHVALTI -->
+        <details>
+            <summary>KAHVALTI</summary>
+            <div class="item-list">
+                <div class="item"><div class="item-name">2 Kişilik Serpme <span class="item-desc">(Piknik)</span></div><div class="item-price">2500₺</div></div>
+                <div class="item"><div class="item-name">Hızlı Kahvaltı <span class="item-desc">(1 Kişilik)</span></div><div class="item-price">750₺</div></div>
+                <div class="item"><div class="item-name">Mix Sandwich</div><div class="item-price">345₺</div></div>
+            </div>
+        </details>
+
+    </main>
+
+    <script>
+        // İsteğe bağlı: Bir kategori açıldığında diğerlerini kapatma özelliği
+        const details = document.querySelectorAll("details");
+        details.forEach((targetDetail) => {
+            targetDetail.addEventListener("click", () => {
+                details.forEach((detail) => {
+                    if (detail !== targetDetail) {
+                        detail.removeAttribute("open");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
