@@ -7,19 +7,19 @@
     <!-- Sekme İkonu (Favicon) -->
     <link rel="icon" href="logo.png?v=2" type="image/png">
     
-    <!-- Google Fonts: Poppins -->
+    <!-- Google Fonts: Playfair Display (Retro Serif) & Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #FCF9F6;       
-            --text-color: #3A3A3A; 
-            --primary-orange: #FFA060; 
-            --gradient-orange: linear-gradient(135deg, #FFB98A 0%, #FF9A55 100%); 
-            --box-bg: rgba(255, 255, 255, 0.95); 
-            --border-color: #F0E9E4;   
+            --bg-color: #F4EFE6;       /* Sıcak Parşömen / Retro Bej */
+            --text-color: #2C2623;     /* Vintage Koyu Kahve / Kömür */
+            --primary-orange: #D46A38; /* Terracotta / Retro Turuncu */
+            --gradient-orange: linear-gradient(135deg, #E08A5B 0%, #C45524 100%); 
+            --box-bg: #FFFDF9;         /* Krem/Fildişi Kutu Arka Planı */
+            --border-color: #E5DCD0;   /* Yumuşak Vintage Çizgi */
         }
 
         * {
@@ -48,19 +48,19 @@
         ::-webkit-scrollbar-track { background: var(--bg-color); }
         ::-webkit-scrollbar-thumb { background: var(--primary-orange); border-radius: 10px; }
 
-        /* --- AMBIENT ARKA PLAN IŞIKLARI --- */
+        /* --- VINTAGE AMBIENT IŞIKLAR --- */
         .ambient-glow {
             position: fixed;
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 160, 96, 0.12);
-            filter: blur(80px);
+            width: 350px;
+            height: 350px;
+            background: rgba(212, 106, 56, 0.08);
+            filter: blur(90px);
             border-radius: 50%;
             z-index: -2;
             pointer-events: none;
         }
         .glow-1 { top: -50px; left: -50px; }
-        .glow-2 { bottom: 10%; right: -50px; background: rgba(255, 185, 138, 0.1); }
+        .glow-2 { bottom: 10%; right: -50px; background: rgba(196, 85, 36, 0.07); }
 
         /* --- PALMİYE YAPRAKLARI --- */
         .palm-leaf {
@@ -70,7 +70,7 @@
             max-width: 180px; 
             z-index: -1;
             pointer-events: none; 
-            opacity: 0.3; 
+            opacity: 0.22; 
         }
 
         .leaf-1 { top: -20px; left: -20px; transform-origin: 50% 100%; animation: sway1 6s ease-in-out infinite alternate; }
@@ -95,29 +95,32 @@
             height: auto;
             margin-bottom: 12px;
             border-radius: 50%; 
-            box-shadow: 0 12px 30px rgba(255, 154, 85, 0.3); 
+            box-shadow: 0 10px 25px rgba(44, 38, 35, 0.15); 
+            border: 2px solid #E5DCD0;
             transition: transform 0.3s ease;
         }
 
         .logo:hover { transform: scale(1.05); }
 
         h1 {
-            font-size: 30px;
-            letter-spacing: 3px;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--primary-orange);
-            font-weight: 800;
+            font-weight: 700;
         }
 
         p.subtitle {
             font-size: 11.5px;
             font-weight: 500;
-            color: #777;
+            color: #7A6F66;
             margin-top: 4px;
             letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
-        /* --- ŞIK BİLGİ BANDI --- */
+        /* --- RETRO BİLGİ BANDI --- */
         .info-bar {
             max-width: 600px;
             margin: 0 auto 20px;
@@ -125,15 +128,15 @@
         }
 
         .info-bar-inner {
-            background: #ffffff;
-            border: 1px solid rgba(255, 154, 85, 0.2);
+            background: var(--box-bg);
+            border: 1px dashed var(--primary-orange);
             padding: 12px 20px;
-            border-radius: 14px;
+            border-radius: 12px;
             text-align: center;
             font-size: 12.5px;
-            color: #555;
+            color: #594E46;
             font-weight: 500;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 15px rgba(44, 38, 35, 0.03);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -143,6 +146,8 @@
         .info-bar-inner span {
             color: var(--primary-orange);
             font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
         }
 
         /* Menü Konteyner */
@@ -153,7 +158,7 @@
             position: relative;
         }
 
-        /* --- ARAMA ÇUBUĞU --- */
+        /* --- VINTAGE ARAMA ÇUBUĞU --- */
         .search-container {
             margin-bottom: 22px;
         }
@@ -161,20 +166,20 @@
         .search-container input {
             width: 100%;
             padding: 15px 20px 15px 48px;
-            border-radius: 35px;
-            border: 1.5px solid rgba(255, 154, 85, 0.3);
-            background: #ffffff url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23FFA060" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>') no-repeat 18px center;
+            border-radius: 12px;
+            border: 1.5px solid var(--border-color);
+            background: var(--box-bg) url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23D46A38" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>') no-repeat 18px center;
             font-family: 'Poppins', sans-serif;
             font-size: 14px;
             color: var(--text-color);
             outline: none;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 15px rgba(44, 38, 35, 0.03);
             transition: all 0.3s ease;
         }
 
         .search-container input:focus {
             border-color: var(--primary-orange);
-            box-shadow: 0 8px 25px rgba(255, 154, 85, 0.18);
+            box-shadow: 0 6px 20px rgba(212, 106, 56, 0.12);
         }
 
         /* --- ÜST YATAY KATEGORİ SEKMELERİ --- */
@@ -190,17 +195,17 @@
         .category-nav::-webkit-scrollbar { display: none; }
 
         .cat-btn {
-            background: #ffffff;
-            border: 1.5px solid rgba(255, 154, 85, 0.25);
+            background: var(--box-bg);
+            border: 1.5px solid var(--border-color);
             color: var(--text-color);
             padding: 11px 22px;
-            border-radius: 35px;
+            border-radius: 12px;
             font-family: 'Poppins', sans-serif;
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 600;
             white-space: nowrap;
             cursor: pointer;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 12px rgba(44, 38, 35, 0.03);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -208,11 +213,11 @@
         }
 
         .cat-img-icon {
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
             object-fit: cover;
-            border: 1.5px solid var(--primary-orange);
+            border: 1px solid var(--primary-orange);
         }
 
         .cat-btn:hover {
@@ -223,7 +228,7 @@
         .cat-btn.active {
             background: var(--gradient-orange);
             color: #ffffff;
-            box-shadow: 0 8px 20px rgba(255, 154, 85, 0.4);
+            box-shadow: 0 6px 18px rgba(212, 106, 56, 0.35);
             border-color: transparent;
         }
 
@@ -234,11 +239,10 @@
         /* --- KATEGORİ İÇERİK KUTULARI --- */
         .menu-section {
             background-color: var(--box-bg);
-            border-radius: 20px; 
+            border-radius: 16px; 
             margin-bottom: 22px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05); 
-            border: 1px solid rgba(255, 154, 85, 0.15);
-            backdrop-filter: blur(10px); 
+            box-shadow: 0 10px 30px rgba(44, 38, 35, 0.05); 
+            border: 1.5px solid var(--border-color);
             display: none; 
             animation: fadeInSection 0.5s ease-in-out forwards;
         }
@@ -263,14 +267,14 @@
             align-items: center;
             padding: 15px 10px;
             border-bottom: 1px solid var(--border-color);
-            border-radius: 10px;
+            border-radius: 8px;
             transition: all 0.2s ease;
         }
 
         .item:last-child { border-bottom: none; }
 
         .item:hover {
-            background-color: rgba(255, 160, 96, 0.06);
+            background-color: rgba(212, 106, 56, 0.04);
             transform: translateX(4px);
             border-bottom-color: transparent;
         }
@@ -283,17 +287,18 @@
             gap: 12px;
         }
 
-        /* Minimal Vektör İkon */
+        /* Retro Vektör İkon Kutusu */
         .item-icon-badge {
             width: 34px;
             height: 34px;
             border-radius: 50%;
-            background: rgba(255, 160, 96, 0.12);
+            background: rgba(212, 106, 56, 0.1);
             color: var(--primary-orange);
             display: flex;
             justify-content: center;
             align-items: center;
             flex-shrink: 0;
+            border: 1px solid rgba(212, 106, 56, 0.2);
         }
 
         .item-name {
@@ -309,7 +314,7 @@
         .item-desc {
             display: block;
             font-size: 11.5px;
-            color: #777;
+            color: #7A6F66;
             font-weight: 500;
             margin-top: 3px;
         }
@@ -318,12 +323,12 @@
             background: var(--gradient-orange);
             color: white;
             font-size: 9px;
-            padding: 3px 6px;
-            border-radius: 6px;
+            padding: 3px 7px;
+            border-radius: 4px;
             font-weight: 700;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            box-shadow: 0 2px 5px rgba(255, 154, 85, 0.4);
+            box-shadow: 0 2px 5px rgba(212, 106, 56, 0.3);
             animation: pulseBadge 2s infinite;
         }
 
@@ -366,6 +371,7 @@
             font-weight: 700;
             font-size: 15px;
             color: var(--primary-orange);
+            font-family: 'Playfair Display', serif;
         }
 
         .item-price {
@@ -373,6 +379,7 @@
             font-size: 15px;
             color: var(--primary-orange);
             white-space: nowrap;
+            font-family: 'Playfair Display', serif;
         }
 
         /* --- BAŞA DÖN BUTONU --- */
@@ -389,7 +396,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 6px 20px rgba(255,154,85,0.45);
+            box-shadow: 0 6px 20px rgba(212,106,56,0.4);
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
@@ -409,7 +416,7 @@
             text-align: center;
             padding: 35px 20px 15px;
             font-size: 12.5px;
-            color: #888;
+            color: #7A6F66;
         }
 
         footer a {
@@ -431,8 +438,8 @@
     <svg class="palm-leaf leaf-1" viewBox="0 0 100 250" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <linearGradient id="palmGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#FF8C42" />
-                <stop offset="100%" stop-color="#FFB98A" />
+                <stop offset="0%" stop-color="#C45524" />
+                <stop offset="100%" stop-color="#E08A5B" />
             </linearGradient>
         </defs>
         <g stroke="url(#palmGrad)" fill="none" stroke-linecap="round">
@@ -469,10 +476,10 @@
         <p class="subtitle">ÖZENLE HAZIRLANMIŞ LEZZETLER</p>
     </header>
 
-    <!-- ŞIK BİLGİ BANDI -->
+    <!-- RETRO BİLGİ BANDI -->
     <div class="info-bar">
         <div class="info-bar-inner">
-            ✨ <span>Heffalump Bakırköy</span> &bull; En taze tatlar ve eşsiz kahve deneyimi
+            ✦ <span>Heffalump Bakırköy</span> &bull; En taze tatlar ve eşsiz kahve deneyimi
         </div>
     </div>
 
@@ -511,7 +518,7 @@
             </button>
         </nav>
 
-        <!-- 1. SICAK İÇECEKLER (Fincan İkonu) -->
+        <!-- 1. SICAK İÇECEKLER -->
         <div id="cat-sicak" class="menu-section active-section">
             <div class="item-list">
                 <div class="size-header">
@@ -542,7 +549,7 @@
             </div>
         </div>
 
-        <!-- 2. DEMLEME İÇECEKLER (Fincan İkonu) -->
+        <!-- 2. DEMLEME İÇECEKLER -->
         <div id="cat-demleme" class="menu-section">
             <div class="item-list">
                 <div class="size-header">
@@ -564,7 +571,7 @@
             </div>
         </div>
 
-        <!-- 3. SOĞUK KAHVELER (Soğuk İçecek / Pipetli Bardak İkonu) -->
+        <!-- 3. SOĞUK KAHVELER -->
         <div id="cat-soguk" class="menu-section">
             <div class="item-list">
                 <div class="item"><div class="item-name-group"><div class="item-icon-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2L7 12"></path><path d="M5 8h14l-1.5 13h-11z"></path></svg></div><div class="item-name">Ice Americano</div></div><div class="item-price">210₺</div></div>
@@ -581,7 +588,7 @@
             </div>
         </div>
 
-        <!-- 4. REFRESHALAR (Soğuk İçecek / Pipetli Bardak İkonu) -->
+        <!-- 4. REFRESHALAR -->
         <div id="cat-refresh" class="menu-section">
             <div class="item-list">
                 <div class="item"><div class="item-name-group"><div class="item-icon-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2L7 12"></path><path d="M5 8h14l-1.5 13h-11z"></path></svg></div><div class="item-name">Cool Lime/Berry Hibiscus</div></div><div class="item-price">260₺</div></div>
@@ -595,7 +602,7 @@
             </div>
         </div>
 
-        <!-- 5. MATCHA & UBE (Fincan İkonu) -->
+        <!-- 5. MATCHA & UBE -->
         <div id="cat-matcha" class="menu-section">
             <div class="item-list">
                 <div class="item"><div class="item-name-group"><div class="item-icon-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg></div><div class="item-name">Matcha Latte</div></div><div class="item-price">260₺</div></div>
@@ -609,7 +616,7 @@
             </div>
         </div>
         
-        <!-- 6. BLENDED İÇECEKLER (Soğuk İçecek / Pipetli Bardak İkonu) -->
+        <!-- 6. BLENDED İÇECEKLER -->
         <div id="cat-blended" class="menu-section">
             <div class="item-list">
                 <div class="item"><div class="item-name-group"><div class="item-icon-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2L7 12"></path><path d="M5 8h14l-1.5 13h-11z"></path></svg></div><div class="item-name">Çikolata/Çilek/Karamel Milkshake</div></div><div class="item-price">270₺</div></div>
@@ -622,7 +629,7 @@
             </div>
         </div>
 
-        <!-- 7. TATLILAR (Yiyecek / Çatal-Bıçak İkonu) -->
+        <!-- 7. TATLILAR -->
         <div id="cat-tatli" class="menu-section">
             <div class="item-list">
                 <div class="item"><div class="item-name-group"><div class="item-icon-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3z"></path><path d="M21 22v-7"></path></svg></div><div class="item-name">Çilekli Mug</div></div><div class="item-price">350₺</div></div>
@@ -636,7 +643,7 @@
             </div>
         </div>
 
-        <!-- 8. KAHVALTI (Yiyecek / Çatal-Bıçak İkonu) -->
+        <!-- 8. KAHVALTI -->
         <div id="cat-kahvalti" class="menu-section">
             <div class="item-list">
                 <div class="item"><div class="item-name-group"><div class="item-icon-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3z"></path><path d="M21 22v-7"></path></svg></div><div class="item-name">2 Kişilik Serpme</div><span class="item-desc">(Piknik)</span></div><div class="item-price">2500₺</div></div>
