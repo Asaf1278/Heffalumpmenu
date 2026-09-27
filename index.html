@@ -7,7 +7,7 @@
     <!-- Sekme İkonu (Favicon) -->
     <link rel="icon" href="logo.png?v=2" type="image/png">
     
-    <!-- Google Fonts: Poppins (Premium ve Modern Görünüm) -->
+    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,10 +15,10 @@
     <style>
         :root {
             --bg-color: #FCF9F6;       
-            --text-color: #3A3A3A; /* Biraz daha koyu ve net bir gri */
+            --text-color: #3A3A3A; 
             --primary-orange: #FFA060; 
             --gradient-orange: linear-gradient(135deg, #FFB98A 0%, #FF9A55 100%); 
-            --box-bg: rgba(255, 255, 255, 0.92); 
+            --box-bg: rgba(255, 255, 255, 0.95); 
             --border-color: #F0E9E4;   
         }
 
@@ -29,7 +29,6 @@
         }
 
         body {
-            /* Yeni elit yazı tipi */
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
@@ -37,7 +36,6 @@
             padding-bottom: 60px;
             overflow-x: hidden; 
             position: relative;
-            /* Sayfa açılış animasyonu */
             animation: pageFadeIn 0.8s ease-out forwards;
         }
 
@@ -46,12 +44,11 @@
             100% { opacity: 1; }
         }
 
-        /* --- ÖZEL KAYDIRMA ÇUBUĞU (SCROLLBAR) --- */
-        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg-color); }
         ::-webkit-scrollbar-thumb { background: var(--primary-orange); border-radius: 10px; }
 
-        /* --- GERÇEKÇİ PALMİYE YAPRAKLARI --- */
+        /* --- PALMİYE YAPRAKLARI --- */
         .palm-leaf {
             position: fixed;
             width: 25vw; 
@@ -71,43 +68,84 @@
         @keyframes sway2 { 0% { transform: scaleX(-1) rotate(35deg); } 100% { transform: scaleX(-1) rotate(50deg); } }
         @keyframes sway3 { 0% { transform: rotate(-40deg); } 100% { transform: rotate(-20deg); } }
         @keyframes sway4 { 0% { transform: scaleX(-1) rotate(5deg); } 100% { transform: scaleX(-1) rotate(25deg); } }
-        /* ------------------------------------------------ */
 
         /* Header / Logo Alanı */
         header {
             text-align: center;
-            padding: 40px 20px 30px;
+            padding: 30px 20px 20px;
             position: relative;
         }
 
         .logo {
-            max-width: 130px;
+            max-width: 120px;
             height: auto;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             border-radius: 50%; 
             box-shadow: 0 10px 25px rgba(255, 154, 85, 0.25); 
             transition: transform 0.3s ease;
         }
 
-        .logo:hover {
-            transform: scale(1.05); /* Logoya dokunulunca hafif büyür */
-        }
+        .logo:hover { transform: scale(1.05); }
 
         h1 {
-            font-size: 32px;
+            font-size: 28px;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--primary-orange);
             font-weight: 800;
-            text-shadow: 1px 1px 0px rgba(0,0,0,0.02);
         }
 
         p.subtitle {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 500;
             color: #888;
             margin-top: 2px;
             letter-spacing: 3px;
+        }
+
+        /* --- ÜST YATAY KATEGORİ ÇUBUĞU --- */
+        .category-nav {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 15px 20px;
+            max-width: 650px;
+            margin: 0 auto;
+            scrollbar-width: none; /* Firefox için kaydırma çubuğunu gizler */
+        }
+        .category-nav::-webkit-scrollbar {
+            display: none; /* Chrome/Safari için kaydırma çubuğunu gizler */
+        }
+
+        .cat-btn {
+            background: #ffffff;
+            border: 1px solid rgba(255, 154, 85, 0.2);
+            color: var(--text-color);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cat-btn:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-2px);
+        }
+
+        /* Aktif Kategori Butonu */
+        .cat-btn.active {
+            background: var(--gradient-orange);
+            color: #ffffff;
+            box-shadow: 0 6px 15px rgba(255, 154, 85, 0.35);
+            border-color: transparent;
         }
 
         /* Menü Konteyner */
@@ -138,7 +176,7 @@
             background: var(--gradient-orange);
             color: #ffffff;
             font-size: 16px;
-            font-weight: 600; /* Fontu kalınlaştırdık */
+            font-weight: 600;
             padding: 22px 24px;
             cursor: pointer;
             list-style: none;
@@ -153,7 +191,6 @@
 
         summary::-webkit-details-marker { display: none; }
 
-        /* Başlıktaki İkon+Yazı grubu */
         .summary-title {
             display: flex;
             align-items: center;
@@ -194,32 +231,26 @@
             transition: max-height 1.2s ease-in-out, opacity 0.8s ease-in-out, padding 0.8s ease-in-out;
         }
 
-        /* --- ÜRÜN TASARIMI VE HOVER EFEKTİ --- */
+        /* --- ÜRÜN TASARIMI --- */
         .item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 12px; /* Sağ ve soldan biraz boşluk */
+            padding: 16px 12px;
             border-bottom: 1px solid var(--border-color);
-            border-radius: 10px; /* Hover için köşeleri yuvarladık */
+            border-radius: 10px;
             transition: all 0.2s ease;
         }
 
-        .item:last-child {
-            border-bottom: none;
-        }
+        .item:last-child { border-bottom: none; }
 
-        /* Üzerine gelince veya dokunulunca oluşan parlama efekti */
         .item:hover, .item:active {
             background-color: rgba(255, 160, 96, 0.08);
-            transform: translateX(4px); /* Hafif sağa kayar */
-            border-bottom-color: transparent; /* Çizgiyi siler */
+            transform: translateX(4px);
+            border-bottom-color: transparent;
         }
 
-        .item-name-group {
-            flex: 1;
-            padding-right: 10px;
-        }
+        .item-name-group { flex: 1; padding-right: 10px; }
 
         .item-name {
             font-weight: 600;
@@ -227,8 +258,8 @@
             color: var(--text-color);
             display: flex;
             align-items: center;
-            flex-wrap: wrap; /* İsim uzunsa alt satıra geçer */
-            gap: 6px; /* İsim ile rozet arası boşluk */
+            flex-wrap: wrap; 
+            gap: 6px; 
         }
 
         .item-desc {
@@ -239,7 +270,6 @@
             margin-top: 3px;
         }
 
-        /* POPÜLER Rozeti Tasarımı */
         .badge-popular {
             background: var(--gradient-orange);
             color: white;
@@ -259,7 +289,6 @@
             100% { transform: scale(1); }
         }
 
-        /* Bardak ve Fiyat Hizalama */
         .size-header {
             display: flex;
             justify-content: flex-end;
@@ -269,7 +298,7 @@
             padding-bottom: 12px;
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 5px;
-            padding-right: 12px; /* Sütunlarla hizalama */
+            padding-right: 12px;
         }
         
         .icon-sm, .icon-lg {
@@ -320,7 +349,6 @@
             <path d="M49,240 Q70,230 90,255 M49,220 Q75,200 95,230 M49,200 Q80,180 100,205 M49,180 Q85,155 105,180 M51,160 Q85,130 110,150 M54,140 Q90,105 115,120 M58,120 Q95,85 115,95 M64,100 Q95,65 115,70 M70,80 Q100,45 115,45 M75,60 Q100,30 115,25 M72,25 Q90,10 100,5" stroke-width="2"/>
         </g>
     </svg>
-
     <svg class="palm-leaf leaf-2" viewBox="0 0 100 250" xmlns="http://www.w3.org/2000/svg">
         <g stroke="url(#palmGrad)" fill="none" stroke-linecap="round">
             <path d="M50,250 Q45,150 70,10" stroke-width="3"/>
@@ -328,7 +356,6 @@
             <path d="M49,240 Q70,230 90,255 M49,220 Q75,200 95,230 M49,200 Q80,180 100,205 M49,180 Q85,155 105,180 M51,160 Q85,130 110,150 M54,140 Q90,105 115,120 M58,120 Q95,85 115,95 M64,100 Q95,65 115,70 M70,80 Q100,45 115,45 M75,60 Q100,30 115,25 M72,25 Q90,10 100,5" stroke-width="2"/>
         </g>
     </svg>
-
     <svg class="palm-leaf leaf-3" viewBox="0 0 100 250" xmlns="http://www.w3.org/2000/svg">
         <g stroke="url(#palmGrad)" fill="none" stroke-linecap="round">
             <path d="M50,250 Q45,150 70,10" stroke-width="3"/>
@@ -336,7 +363,6 @@
             <path d="M49,240 Q70,230 90,255 M49,220 Q75,200 95,230 M49,200 Q80,180 100,205 M49,180 Q85,155 105,180 M51,160 Q85,130 110,150 M54,140 Q90,105 115,120 M58,120 Q95,85 115,95 M64,100 Q95,65 115,70 M70,80 Q100,45 115,45 M75,60 Q100,30 115,25 M72,25 Q90,10 100,5" stroke-width="2"/>
         </g>
     </svg>
-
     <svg class="palm-leaf leaf-4" viewBox="0 0 100 250" xmlns="http://www.w3.org/2000/svg">
         <g stroke="url(#palmGrad)" fill="none" stroke-linecap="round">
             <path d="M50,250 Q45,150 70,10" stroke-width="3"/>
@@ -351,15 +377,26 @@
         <p class="subtitle">ÖZENLE HAZIRLANMIŞ LEZZETLER</p>
     </header>
 
+    <!-- ÜST KISIMDA YAN YANA KAYDIRILABİLİR KATEGORİ SEKMELERİ -->
+    <nav class="category-nav">
+        <button class="cat-btn active" onclick="openCategory('cat-sicak', this)">☕ Sıcak</button>
+        <button class="cat-btn" onclick="openCategory('cat-demleme', this)">🫖 Demleme</button>
+        <button class="cat-btn" onclick="openCategory('cat-soguk', this)">🧊 Soğuk</button>
+        <button class="cat-btn" onclick="openCategory('cat-refresh', this)">🍹 Refreshalar</button>
+        <button class="cat-btn" onclick="openCategory('cat-matcha', this)">🍵 Matcha & Ube</button>
+        <button class="cat-btn" onclick="openCategory('cat-blended', this)">🥤 Blended</button>
+        <button class="cat-btn" onclick="openCategory('cat-tatli', this)">🍰 Tatlılar</button>
+        <button class="cat-btn" onclick="openCategory('cat-kahvalti', this)">🍳 Kahvaltı</button>
+    </nav>
+
     <main class="menu-container">
 
-        <!-- SICAK İÇECEKLER -->
-        <details>
+        <!-- 1. SICAK İÇECEKLER -->
+        <details id="cat-sicak" open>
             <summary>
                 <div class="summary-title"><span>☕</span> SICAK İÇECEKLER</div>
             </summary>
             <div class="item-list">
-                
                 <div class="size-header">
                     <div class="icon-sm">
                         <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M5 8h14l-1.5 12h-11z"/><path d="M6 4h12v4H6z"/></svg>
@@ -369,80 +406,31 @@
                     </div>
                 </div>
 
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Espresso</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">120₺</div><div class="price-lg">140₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Americano</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">180₺</div><div class="price-lg">200₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Latte</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">210₺</div><div class="price-lg">235₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Cappuccino</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">210₺</div><div class="price-lg">235₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Flat White</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">240₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Spanish Latte</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">265₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Salted Caramel Latte</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">245₺</div><div class="price-lg">270₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Mocha</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">255₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">White Mocha</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">255₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Nutella Latte</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">250₺</div><div class="price-lg">275₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Toffee Nut Latte</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Gingerbread Latte</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Pumpkin Spice Latte <span class="badge-popular">Popüler</span></div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Lotus Latte</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">260₺</div><div class="price-lg">280₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Tiramisu Latte</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Pumpkin Spice Macchiato</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">250₺</div><div class="price-lg">280₺</div></div>
-                </div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Espresso</div></div><div class="price-col-wrapper"><div class="price-sm">120₺</div><div class="price-lg">140₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Americano</div></div><div class="price-col-wrapper"><div class="price-sm">180₺</div><div class="price-lg">200₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Latte</div></div><div class="price-col-wrapper"><div class="price-sm">210₺</div><div class="price-lg">235₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Cappuccino</div></div><div class="price-col-wrapper"><div class="price-sm">210₺</div><div class="price-lg">235₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Flat White</div></div><div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">240₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Spanish Latte</div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">265₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Salted Caramel Latte</div></div><div class="price-col-wrapper"><div class="price-sm">245₺</div><div class="price-lg">270₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Mocha</div></div><div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">255₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">White Mocha</div></div><div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">255₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Nutella Latte</div></div><div class="price-col-wrapper"><div class="price-sm">250₺</div><div class="price-lg">275₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Toffee Nut Latte</div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Gingerbread Latte</div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Pumpkin Spice Latte <span class="badge-popular">Popüler</span></div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Lotus Latte</div></div><div class="price-col-wrapper"><div class="price-sm">260₺</div><div class="price-lg">280₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Tiramisu Latte</div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Pumpkin Spice Macchiato</div></div><div class="price-col-wrapper"><div class="price-sm">250₺</div><div class="price-lg">280₺</div></div></div>
             </div>
         </details>
 
-        <!-- DEMLEME İÇECEKLER -->
-        <details>
+        <!-- 2. DEMLEME İÇECEKLER -->
+        <details id="cat-demleme">
             <summary>
                 <div class="summary-title"><span>🫖</span> DEMLEME İÇECEKLER</div>
             </summary>
             <div class="item-list">
-                
                 <div class="size-header">
                     <div class="icon-sm">
                         <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M5 8h14l-1.5 12h-11z"/><path d="M6 4h12v4H6z"/></svg>
@@ -452,39 +440,18 @@
                     </div>
                 </div>
 
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Salep</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">250₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Türk Kahvesi</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">160₺</div><div class="price-lg">190₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Çay</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">80₺</div><div class="price-lg">90₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Sıcak Çikolata</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">220₺</div><div class="price-lg">230₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Chai Tea Latte</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">240₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">V-60 Latte</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm">250₺</div><div class="price-lg">260₺</div></div>
-                </div>
-                <div class="item">
-                    <div class="item-name-group"><div class="item-name">Bitki Çayları</div></div>
-                    <div class="price-col-wrapper"><div class="price-sm"></div><div class="price-lg">180₺</div></div>
-                </div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Salep</div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">250₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Türk Kahvesi</div></div><div class="price-col-wrapper"><div class="price-sm">160₺</div><div class="price-lg">190₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Çay</div></div><div class="price-col-wrapper"><div class="price-sm">80₺</div><div class="price-lg">90₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Sıcak Çikolata</div></div><div class="price-col-wrapper"><div class="price-sm">220₺</div><div class="price-lg">230₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Chai Tea Latte</div></div><div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">240₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">V-60 Latte</div></div><div class="price-col-wrapper"><div class="price-sm">250₺</div><div class="price-lg">260₺</div></div></div>
+                <div class="item"><div class="item-name-group"><div class="item-name">Bitki Çayları</div></div><div class="price-col-wrapper"><div class="price-sm"></div><div class="price-lg">180₺</div></div></div>
             </div>
         </details>
 
-        <!-- SOĞUK KAHVELER -->
-        <details>
+        <!-- 3. SOĞUK KAHVELER -->
+        <details id="cat-soguk">
             <summary>
                 <div class="summary-title"><span>🧊</span> SOĞUK KAHVELER</div>
             </summary>
@@ -503,8 +470,8 @@
             </div>
         </details>
 
-        <!-- REFRESHALAR -->
-        <details>
+        <!-- 4. REFRESHALAR -->
+        <details id="cat-refresh">
             <summary>
                 <div class="summary-title"><span>🍹</span> REFRESHALAR</div>
             </summary>
@@ -520,8 +487,8 @@
             </div>
         </details>
 
-        <!-- MATCHA & UBE -->
-        <details>
+        <!-- 5. MATCHA & UBE -->
+        <details id="cat-matcha">
             <summary>
                 <div class="summary-title"><span>🍵</span> MATCHA & UBE</div>
             </summary>
@@ -537,8 +504,8 @@
             </div>
         </details>
         
-        <!-- BLENDED İÇECEKLER -->
-        <details>
+        <!-- 6. BLENDED İÇECEKLER -->
+        <details id="cat-blended">
             <summary>
                 <div class="summary-title"><span>🥤</span> BLENDED İÇECEKLER</div>
             </summary>
@@ -553,8 +520,8 @@
             </div>
         </details>
 
-        <!-- TATLILAR -->
-        <details>
+        <!-- 7. TATLILAR -->
+        <details id="cat-tatli">
             <summary>
                 <div class="summary-title"><span>🍰</span> TATLILAR</div>
             </summary>
@@ -570,8 +537,8 @@
             </div>
         </details>
 
-        <!-- KAHVALTI -->
-        <details>
+        <!-- 8. KAHVALTI -->
+        <details id="cat-kahvalti">
             <summary>
                 <div class="summary-title"><span>🍳</span> KAHVALTI</div>
             </summary>
@@ -585,15 +552,43 @@
     </main>
 
     <script>
-        // Sadece bir kategorinin açık kalmasını sağlayan, diğerlerini yavaşça kapatan sistem
         const details = document.querySelectorAll("details");
-        details.forEach((targetDetail) => {
-            targetDetail.addEventListener("click", () => {
-                details.forEach((detail) => {
-                    if (detail !== targetDetail) {
-                        detail.removeAttribute("open");
-                    }
-                });
+        const buttons = document.querySelectorAll(".cat-btn");
+
+        // Üstteki butonlara basıldığında ilgili kategoriyi açan ve diğerlerini kapatan fonksiyon
+        function openCategory(targetId, clickedBtn) {
+            // Butonların aktiflik durumunu güncelle
+            buttons.forEach(btn => btn.classList.remove("active"));
+            clickedBtn.classList.add("active");
+
+            // Hedef kategoriyi bul ve aç
+            details.forEach(detail => {
+                if (detail.id === targetId) {
+                    detail.setAttribute("open", "true");
+                    // Sayfayı akıcı bir şekilde o kategoriye kaydır
+                    detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    detail.removeAttribute("open");
+                }
+            });
+        }
+
+        // Kullanıcı manuel olarak herhangi bir kutuyu açarsa üstteki buton aktifliğini senkronize et
+        details.forEach(targetDetail => {
+            targetDetail.addEventListener("toggle", () => {
+                if (targetDetail.open) {
+                    details.forEach(d => {
+                        if (d !== targetDetail) d.removeAttribute("open");
+                    });
+                    
+                    // İlgili butonu aktif yap
+                    buttons.forEach(btn => {
+                        if (btn.getAttribute("onclick").includes(targetDetail.id)) {
+                            buttons.forEach(b => b.classList.remove("active"));
+                            btn.classList.add("active");
+                        }
+                    });
+                }
             });
         });
     </script>
