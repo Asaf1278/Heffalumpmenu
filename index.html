@@ -30,45 +30,62 @@
             color: var(--text-color);
             line-height: 1.6;
             padding-bottom: 60px;
-            overflow-x: hidden; /* Kenarlardan taşmayı engeller */
+            overflow-x: hidden; 
             position: relative;
         }
 
-        /* --- YENİ GERÇEKÇİ PALMİYE YAPRAKLARI --- */
+        /* --- DAHA BELİRGİN VE ÇOKLU PALMİYE YAPRAKLARI --- */
         .palm-leaf {
             position: fixed;
-            width: 280px; /* Daha büyük ve gösterişli */
+            width: 220px; 
             height: auto;
             z-index: -1;
-            pointer-events: none; /* Tıklamayı engellemez */
-            opacity: 0.18; /* Okunabilirliği bozmayacak çok şık bir ton */
+            pointer-events: none; 
+            opacity: 0.45; /* Daha belirgin! (Eskisi 0.18'di) */
         }
 
-        /* Sol üstten sarkan palmiye */
-        .leaf-left {
-            top: -20px;
-            left: -80px;
-            transform-origin: top center; /* Dalın ucundan (yukarıdan) sallanır */
-            animation: swayLeft 6s ease-in-out infinite alternate;
+        /* Yaprak köklerinin ekran dışından gelmesi için dönüşüm noktası (alt orta) */
+        .leaf-1 { /* Sol Üst */
+            top: -50px;
+            left: -50px;
+            transform-origin: 50% 100%;
+            animation: sway1 6s ease-in-out infinite alternate;
         }
-
-        /* Sağ alttan çıkan palmiye */
-        .leaf-right {
-            bottom: -30px;
+        .leaf-2 { /* Sağ Orta */
+            top: 25%;
             right: -80px;
-            transform-origin: bottom center; /* Kökten (aşağıdan) sallanır */
-            animation: swayRight 7s ease-in-out infinite alternate;
+            transform-origin: 50% 100%;
+            animation: sway2 7s ease-in-out infinite alternate;
+        }
+        .leaf-3 { /* Sol Alt */
+            bottom: 20%;
+            left: -80px;
+            transform-origin: 50% 100%;
+            animation: sway3 8s ease-in-out infinite alternate;
+        }
+        .leaf-4 { /* Sağ Alt */
+            bottom: -50px;
+            right: -50px;
+            transform-origin: 50% 100%;
+            animation: sway4 5s ease-in-out infinite alternate;
         }
 
-        /* Rüzgarda sallanma animasyonları */
-        @keyframes swayLeft {
-            0% { transform: rotate(-130deg); }
-            100% { transform: rotate(-120deg); }
+        /* Gerçekçi Rüzgar Animasyonları */
+        @keyframes sway1 {
+            0% { transform: rotate(120deg); }
+            100% { transform: rotate(135deg); }
         }
-
-        @keyframes swayRight {
-            0% { transform: rotate(15deg); }
-            100% { transform: rotate(25deg); }
+        @keyframes sway2 {
+            0% { transform: rotate(-75deg); }
+            100% { transform: rotate(-90deg); }
+        }
+        @keyframes sway3 {
+            0% { transform: rotate(60deg); }
+            100% { transform: rotate(80deg); }
+        }
+        @keyframes sway4 {
+            0% { transform: rotate(-30deg); }
+            100% { transform: rotate(-15deg); }
         }
         /* ------------------------------------------------ */
 
@@ -118,7 +135,7 @@
             margin-bottom: 18px;
             box-shadow: 0 6px 16px rgba(255, 154, 85, 0.08); 
             border: 1px solid rgba(255, 154, 85, 0.1);
-            backdrop-filter: blur(5px); 
+            backdrop-filter: blur(8px); /* Arkadaki yaprakları bulandırarak yazıyı öne çıkarır */
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -149,7 +166,6 @@
             display: none;
         }
 
-        /* Modern Ok İşareti */
         summary::after {
             content: '❯'; 
             font-size: 16px;
@@ -166,7 +182,6 @@
             transform: rotate(90deg);
         }
 
-        /* Ürün Listesi Animasyonu ve Tasarımı */
         .item-list {
             padding: 15px 24px 24px;
             background-color: transparent;
@@ -174,21 +189,14 @@
             border-bottom-right-radius: 16px;
         }
 
-        /* Yumuşak Açılma Efekti */
         details[open] .item-list {
             animation: smoothSlideDown 0.4s ease-out forwards;
             transform-origin: top center;
         }
 
         @keyframes smoothSlideDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-15px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(-15px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .item {
@@ -248,18 +256,16 @@
 </head>
 <body>
 
-    <!-- Gerçekçi Palmiye SVG (Sol Üst) -->
-    <svg class="palm-leaf leaf-left" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- 1. Yaprak: Sol Üst -->
+    <svg class="palm-leaf leaf-1" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <linearGradient id="palmGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="var(--primary-orange)" />
+                <stop offset="0%" stop-color="#FF8C42" /> <!-- Biraz daha canlı turuncu -->
                 <stop offset="100%" stop-color="#FFB98A" />
             </linearGradient>
         </defs>
         <g fill="none" stroke="url(#palmGrad)" stroke-linecap="round">
-            <!-- Ana Gövde -->
             <path d="M100,400 Q100,200 100,20" stroke-width="5"/>
-            <!-- Sol Yapraklar (Fronds) -->
             <path d="M100,360 Q30,340 10,380" stroke-width="9"/>
             <path d="M100,320 Q20,290 5,340" stroke-width="11"/>
             <path d="M100,280 Q15,240 5,290" stroke-width="13"/>
@@ -269,7 +275,6 @@
             <path d="M100,120 Q40,60 40,100" stroke-width="9"/>
             <path d="M100,80 Q60,30 60,60" stroke-width="7"/>
             <path d="M100,40 Q80,10 80,30" stroke-width="5"/>
-            <!-- Sağ Yapraklar (Fronds) -->
             <path d="M100,370 Q170,350 190,390" stroke-width="9"/>
             <path d="M100,330 Q180,300 195,350" stroke-width="11"/>
             <path d="M100,290 Q185,250 195,300" stroke-width="13"/>
@@ -282,8 +287,58 @@
         </g>
     </svg>
 
-    <!-- Gerçekçi Palmiye SVG (Sağ Alt) -->
-    <svg class="palm-leaf leaf-right" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- 2. Yaprak: Sağ Orta -->
+    <svg class="palm-leaf leaf-2" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="url(#palmGrad)" stroke-linecap="round">
+            <path d="M100,400 Q100,200 100,20" stroke-width="5"/>
+            <path d="M100,360 Q30,340 10,380" stroke-width="9"/>
+            <path d="M100,320 Q20,290 5,340" stroke-width="11"/>
+            <path d="M100,280 Q15,240 5,290" stroke-width="13"/>
+            <path d="M100,240 Q15,190 10,240" stroke-width="13"/>
+            <path d="M100,200 Q20,140 15,190" stroke-width="12"/>
+            <path d="M100,160 Q30,100 25,140" stroke-width="11"/>
+            <path d="M100,120 Q40,60 40,100" stroke-width="9"/>
+            <path d="M100,80 Q60,30 60,60" stroke-width="7"/>
+            <path d="M100,40 Q80,10 80,30" stroke-width="5"/>
+            <path d="M100,370 Q170,350 190,390" stroke-width="9"/>
+            <path d="M100,330 Q180,300 195,350" stroke-width="11"/>
+            <path d="M100,290 Q185,250 195,300" stroke-width="13"/>
+            <path d="M100,250 Q185,200 190,250" stroke-width="13"/>
+            <path d="M100,210 Q180,150 185,200" stroke-width="12"/>
+            <path d="M100,170 Q170,110 175,150" stroke-width="11"/>
+            <path d="M100,130 Q160,70 160,110" stroke-width="9"/>
+            <path d="M100,90 Q140,40 140,70" stroke-width="7"/>
+            <path d="M100,50 Q120,20 120,40" stroke-width="5"/>
+        </g>
+    </svg>
+
+    <!-- 3. Yaprak: Sol Alt -->
+    <svg class="palm-leaf leaf-3" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="url(#palmGrad)" stroke-linecap="round">
+            <path d="M100,400 Q100,200 100,20" stroke-width="5"/>
+            <path d="M100,360 Q30,340 10,380" stroke-width="9"/>
+            <path d="M100,320 Q20,290 5,340" stroke-width="11"/>
+            <path d="M100,280 Q15,240 5,290" stroke-width="13"/>
+            <path d="M100,240 Q15,190 10,240" stroke-width="13"/>
+            <path d="M100,200 Q20,140 15,190" stroke-width="12"/>
+            <path d="M100,160 Q30,100 25,140" stroke-width="11"/>
+            <path d="M100,120 Q40,60 40,100" stroke-width="9"/>
+            <path d="M100,80 Q60,30 60,60" stroke-width="7"/>
+            <path d="M100,40 Q80,10 80,30" stroke-width="5"/>
+            <path d="M100,370 Q170,350 190,390" stroke-width="9"/>
+            <path d="M100,330 Q180,300 195,350" stroke-width="11"/>
+            <path d="M100,290 Q185,250 195,300" stroke-width="13"/>
+            <path d="M100,250 Q185,200 190,250" stroke-width="13"/>
+            <path d="M100,210 Q180,150 185,200" stroke-width="12"/>
+            <path d="M100,170 Q170,110 175,150" stroke-width="11"/>
+            <path d="M100,130 Q160,70 160,110" stroke-width="9"/>
+            <path d="M100,90 Q140,40 140,70" stroke-width="7"/>
+            <path d="M100,50 Q120,20 120,40" stroke-width="5"/>
+        </g>
+    </svg>
+
+    <!-- 4. Yaprak: Sağ Alt -->
+    <svg class="palm-leaf leaf-4" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
         <g fill="none" stroke="url(#palmGrad)" stroke-linecap="round">
             <path d="M100,400 Q100,200 100,20" stroke-width="5"/>
             <path d="M100,360 Q30,340 10,380" stroke-width="9"/>
