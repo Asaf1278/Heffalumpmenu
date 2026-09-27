@@ -34,40 +34,41 @@
             position: relative;
         }
 
-        /* --- KENARLARDAKİ HAREKETLİ PALMİYE YAPRAKLARI --- */
+        /* --- YENİ GERÇEKÇİ PALMİYE YAPRAKLARI --- */
         .palm-leaf {
             position: fixed;
-            width: 220px;
+            width: 280px; /* Daha büyük ve gösterişli */
             height: auto;
             z-index: -1;
-            pointer-events: none; /* Yaprakların tıklamayı engellememesi için */
-            opacity: 0.25; /* Rengi menüyle uyumlu soft bir tonda */
+            pointer-events: none; /* Tıklamayı engellemez */
+            opacity: 0.18; /* Okunabilirliği bozmayacak çok şık bir ton */
         }
 
+        /* Sol üstten sarkan palmiye */
         .leaf-left {
-            top: 5%;
-            left: -70px;
-            transform-origin: bottom left;
+            top: -20px;
+            left: -80px;
+            transform-origin: top center; /* Dalın ucundan (yukarıdan) sallanır */
             animation: swayLeft 6s ease-in-out infinite alternate;
         }
 
+        /* Sağ alttan çıkan palmiye */
         .leaf-right {
-            bottom: 5%;
-            right: -70px;
-            transform: scaleX(-1);
-            transform-origin: bottom left; 
+            bottom: -30px;
+            right: -80px;
+            transform-origin: bottom center; /* Kökten (aşağıdan) sallanır */
             animation: swayRight 7s ease-in-out infinite alternate;
         }
 
         /* Rüzgarda sallanma animasyonları */
         @keyframes swayLeft {
-            0% { transform: rotate(-5deg); }
-            100% { transform: rotate(12deg); }
+            0% { transform: rotate(-130deg); }
+            100% { transform: rotate(-120deg); }
         }
 
         @keyframes swayRight {
-            0% { transform: scaleX(-1) rotate(-8deg); }
-            100% { transform: scaleX(-1) rotate(6deg); }
+            0% { transform: rotate(15deg); }
+            100% { transform: rotate(25deg); }
         }
         /* ------------------------------------------------ */
 
@@ -247,14 +248,63 @@
 </head>
 <body>
 
-    <!-- Sol Üstteki Palmiye Yaprağı -->
+    <!-- Gerçekçi Palmiye SVG (Sol Üst) -->
     <svg class="palm-leaf leaf-left" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
-        <path fill="var(--primary-orange)" d="M100,400 C80,300 20,200 0,100 C40,120 70,160 80,200 C70,140 100,80 150,50 C120,110 100,160 95,220 C130,170 170,140 200,160 C150,190 110,230 100,260 C140,240 170,250 180,290 C130,280 110,310 100,340 C110,360 100,380 100,400 Z"></path>
+        <defs>
+            <linearGradient id="palmGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="var(--primary-orange)" />
+                <stop offset="100%" stop-color="#FFB98A" />
+            </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#palmGrad)" stroke-linecap="round">
+            <!-- Ana Gövde -->
+            <path d="M100,400 Q100,200 100,20" stroke-width="5"/>
+            <!-- Sol Yapraklar (Fronds) -->
+            <path d="M100,360 Q30,340 10,380" stroke-width="9"/>
+            <path d="M100,320 Q20,290 5,340" stroke-width="11"/>
+            <path d="M100,280 Q15,240 5,290" stroke-width="13"/>
+            <path d="M100,240 Q15,190 10,240" stroke-width="13"/>
+            <path d="M100,200 Q20,140 15,190" stroke-width="12"/>
+            <path d="M100,160 Q30,100 25,140" stroke-width="11"/>
+            <path d="M100,120 Q40,60 40,100" stroke-width="9"/>
+            <path d="M100,80 Q60,30 60,60" stroke-width="7"/>
+            <path d="M100,40 Q80,10 80,30" stroke-width="5"/>
+            <!-- Sağ Yapraklar (Fronds) -->
+            <path d="M100,370 Q170,350 190,390" stroke-width="9"/>
+            <path d="M100,330 Q180,300 195,350" stroke-width="11"/>
+            <path d="M100,290 Q185,250 195,300" stroke-width="13"/>
+            <path d="M100,250 Q185,200 190,250" stroke-width="13"/>
+            <path d="M100,210 Q180,150 185,200" stroke-width="12"/>
+            <path d="M100,170 Q170,110 175,150" stroke-width="11"/>
+            <path d="M100,130 Q160,70 160,110" stroke-width="9"/>
+            <path d="M100,90 Q140,40 140,70" stroke-width="7"/>
+            <path d="M100,50 Q120,20 120,40" stroke-width="5"/>
+        </g>
     </svg>
 
-    <!-- Sağ Alttaki Palmiye Yaprağı -->
+    <!-- Gerçekçi Palmiye SVG (Sağ Alt) -->
     <svg class="palm-leaf leaf-right" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
-        <path fill="var(--primary-orange)" d="M100,400 C80,300 20,200 0,100 C40,120 70,160 80,200 C70,140 100,80 150,50 C120,110 100,160 95,220 C130,170 170,140 200,160 C150,190 110,230 100,260 C140,240 170,250 180,290 C130,280 110,310 100,340 C110,360 100,380 100,400 Z"></path>
+        <g fill="none" stroke="url(#palmGrad)" stroke-linecap="round">
+            <path d="M100,400 Q100,200 100,20" stroke-width="5"/>
+            <path d="M100,360 Q30,340 10,380" stroke-width="9"/>
+            <path d="M100,320 Q20,290 5,340" stroke-width="11"/>
+            <path d="M100,280 Q15,240 5,290" stroke-width="13"/>
+            <path d="M100,240 Q15,190 10,240" stroke-width="13"/>
+            <path d="M100,200 Q20,140 15,190" stroke-width="12"/>
+            <path d="M100,160 Q30,100 25,140" stroke-width="11"/>
+            <path d="M100,120 Q40,60 40,100" stroke-width="9"/>
+            <path d="M100,80 Q60,30 60,60" stroke-width="7"/>
+            <path d="M100,40 Q80,10 80,30" stroke-width="5"/>
+            <path d="M100,370 Q170,350 190,390" stroke-width="9"/>
+            <path d="M100,330 Q180,300 195,350" stroke-width="11"/>
+            <path d="M100,290 Q185,250 195,300" stroke-width="13"/>
+            <path d="M100,250 Q185,200 190,250" stroke-width="13"/>
+            <path d="M100,210 Q180,150 185,200" stroke-width="12"/>
+            <path d="M100,170 Q170,110 175,150" stroke-width="11"/>
+            <path d="M100,130 Q160,70 160,110" stroke-width="9"/>
+            <path d="M100,90 Q140,40 140,70" stroke-width="7"/>
+            <path d="M100,50 Q120,20 120,40" stroke-width="5"/>
+        </g>
     </svg>
 
     <header>
