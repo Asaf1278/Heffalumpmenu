@@ -14,7 +14,7 @@
             --text-color: #4A4A4A;     
             --primary-orange: #FFA060; 
             --gradient-orange: linear-gradient(135deg, #FFB98A 0%, #FF9A55 100%); 
-            --box-bg: #FFFFFF;         
+            --box-bg: rgba(255, 255, 255, 0.95); /* Arkadaki hareketin hafifçe belli olması için kutuları çok az şeffaf yaptık */
             --border-color: #F0E9E4;   
         }
 
@@ -24,19 +24,46 @@
             padding: 0;
         }
 
+        html {
+            background-color: var(--bg-color);
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
             padding-bottom: 60px;
+            position: relative;
         }
+
+        /* --- HAREKETLİ PALMİYE ARKA PLANI --- */
+        .animated-bg {
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            width: 100vw; 
+            height: 100vh;
+            /* Palmiye görseli - İsterseniz bu linki kendi görsel linkinizle değiştirebilirsiniz */
+            background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.12; /* %12 görünürlük. Yazıları engellemez, çok şık durur. */
+            z-index: -1;
+            /* 40 saniyede bir yavaşça hareket edip geri döner (rüzgar efekti) */
+            animation: slowPan 40s ease-in-out infinite alternate;
+        }
+
+        @keyframes slowPan {
+            0% { transform: scale(1.1) translate(1%, 1%); }
+            100% { transform: scale(1.1) translate(-1%, -1%); }
+        }
+        /* ------------------------------------ */
 
         /* Header / Logo Alanı */
         header {
             text-align: center;
             padding: 40px 20px 30px;
-            background-color: var(--bg-color);
+            position: relative;
         }
 
         .logo {
@@ -68,6 +95,7 @@
             max-width: 600px;
             margin: 0 auto;
             padding: 0 15px;
+            position: relative;
         }
 
         /* Akordiyon (Kategoriler) - Modernize Edilmiş Tuşlar */
@@ -77,6 +105,7 @@
             margin-bottom: 18px;
             box-shadow: 0 6px 16px rgba(255, 154, 85, 0.08); 
             border: 1px solid rgba(255, 154, 85, 0.1);
+            backdrop-filter: blur(5px); /* Arka planı hafifçe buzlu cam gibi yapar */
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -127,12 +156,12 @@
         /* Ürün Listesi Animasyonu ve Tasarımı */
         .item-list {
             padding: 15px 24px 24px;
-            background-color: var(--box-bg);
+            background-color: transparent;
             border-bottom-left-radius: 16px;
             border-bottom-right-radius: 16px;
         }
 
-        /* Yumuşak Açılma Efekti (Buraya eklendi) */
+        /* Yumuşak Açılma Efekti */
         details[open] .item-list {
             animation: smoothSlideDown 0.4s ease-out forwards;
             transform-origin: top center;
@@ -205,6 +234,9 @@
     </style>
 </head>
 <body>
+
+    <!-- Animasyonlu Arka Plan Katmanı -->
+    <div class="animated-bg"></div>
 
     <header>
         <img src="logo.png" alt="Heffalump Logo" class="logo" onerror="this.style.display='none'"> 
