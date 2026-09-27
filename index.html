@@ -34,10 +34,9 @@
             position: relative;
         }
 
-        /* --- GERÇEKÇİ VE HİZALI PALMİYE YAPRAKLARI --- */
+        /* --- GERÇEKÇİ PALMİYE YAPRAKLARI --- */
         .palm-leaf {
             position: fixed;
-            /* Ekranın %25'inden fazla büyümez, böylece asla ortada çakışmazlar */
             width: 25vw; 
             min-width: 130px;
             max-width: 180px; 
@@ -46,33 +45,10 @@
             opacity: 0.35; 
         }
 
-        .leaf-1 { /* Sol Üst */
-            top: -20px;
-            left: -20px;
-            transform-origin: 50% 100%;
-            animation: sway1 6s ease-in-out infinite alternate;
-        }
-        .leaf-2 { /* Sağ Orta */
-            top: 30%;
-            right: -30px;
-            transform: scaleX(-1) rotate(45deg);
-            transform-origin: 50% 100%;
-            animation: sway2 7s ease-in-out infinite alternate;
-        }
-        .leaf-3 { /* Sol Alt */
-            bottom: 10%;
-            left: -20px;
-            transform: rotate(-30deg);
-            transform-origin: 50% 100%;
-            animation: sway3 8s ease-in-out infinite alternate;
-        }
-        .leaf-4 { /* Sağ Alt */
-            bottom: -20px;
-            right: -20px;
-            transform: scaleX(-1) rotate(15deg);
-            transform-origin: 50% 100%;
-            animation: sway4 5s ease-in-out infinite alternate;
-        }
+        .leaf-1 { top: -20px; left: -20px; transform-origin: 50% 100%; animation: sway1 6s ease-in-out infinite alternate; }
+        .leaf-2 { top: 30%; right: -30px; transform: scaleX(-1) rotate(45deg); transform-origin: 50% 100%; animation: sway2 7s ease-in-out infinite alternate; }
+        .leaf-3 { bottom: 10%; left: -20px; transform: rotate(-30deg); transform-origin: 50% 100%; animation: sway3 8s ease-in-out infinite alternate; }
+        .leaf-4 { bottom: -20px; right: -20px; transform: scaleX(-1) rotate(15deg); transform-origin: 50% 100%; animation: sway4 5s ease-in-out infinite alternate; }
 
         @keyframes sway1 { 0% { transform: rotate(0deg); } 100% { transform: rotate(10deg); } }
         @keyframes sway2 { 0% { transform: scaleX(-1) rotate(35deg); } 100% { transform: scaleX(-1) rotate(50deg); } }
@@ -127,11 +103,11 @@
             box-shadow: 0 6px 16px rgba(255, 154, 85, 0.08); 
             border: 1px solid rgba(255, 154, 85, 0.1);
             backdrop-filter: blur(8px); 
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         details[open] {
-            box-shadow: 0 12px 24px rgba(255, 154, 85, 0.15);
+            box-shadow: 0 15px 30px rgba(255, 154, 85, 0.15);
             transform: translateY(-3px); 
             border-color: var(--primary-orange);
         }
@@ -161,7 +137,7 @@
             content: '❯'; 
             font-size: 16px;
             color: #ffffff;
-            transition: transform 0.4s ease;
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         details[open] summary {
@@ -180,20 +156,28 @@
             border-bottom-right-radius: 16px;
         }
 
+        /* --- ÇOK DAHA YUMUŞAK AÇILIŞ EFEKTİ --- */
         details[open] .item-list {
-            animation: smoothSlideDown 0.4s ease-out forwards;
+            animation: softElegantOpen 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             transform-origin: top center;
         }
 
-        @keyframes smoothSlideDown {
-            0% { opacity: 0; transform: translateY(-15px); }
-            100% { opacity: 1; transform: translateY(0); }
+        @keyframes softElegantOpen {
+            0% { 
+                opacity: 0; 
+                transform: translateY(-20px) scale(0.98); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
         }
+        /* -------------------------------------- */
 
         .item {
             display: flex;
             justify-content: space-between;
-            align-items: center; /* İsim ve fiyatları dikeyde ortalar */
+            align-items: center;
             padding: 14px 0;
             border-bottom: 1px dashed var(--border-color);
         }
@@ -219,7 +203,7 @@
             font-style: italic;
         }
 
-        /* --- YENİ BÜYÜK/KÜÇÜK BARDAK HİZALAMA SİSTEMİ --- */
+        /* Bardak ve Fiyat Hizalama */
         .size-header {
             display: flex;
             justify-content: flex-end;
@@ -232,14 +216,13 @@
         }
         
         .icon-sm, .icon-lg {
-            width: 55px; /* Sütun genişliği */
+            width: 55px;
             display: flex;
             justify-content: center;
             align-items: flex-end;
             color: var(--primary-orange);
         }
 
-        /* Fiyat sütunları sarmalayıcı */
         .price-col-wrapper {
             display: flex;
             gap: 10px;
@@ -247,7 +230,6 @@
             justify-content: flex-end;
         }
 
-        /* Hizalanmış ayrı fiyat kutuları */
         .price-sm, .price-lg {
             width: 55px;
             text-align: center;
@@ -256,7 +238,6 @@
             color: var(--primary-orange);
         }
 
-        /* Standart tek fiyatlı ürünler için */
         .item-price {
             font-weight: 700;
             font-size: 16px;
@@ -268,7 +249,7 @@
 </head>
 <body>
 
-    <!-- İç içe geçmeyen GERÇEKÇİ Palmiye SVG'leri -->
+    <!-- Palmiye SVG'leri -->
     <svg class="palm-leaf leaf-1" viewBox="0 0 100 250" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <linearGradient id="palmGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -315,24 +296,20 @@
 
     <main class="menu-container">
 
-        <!-- SICAK İÇECEKLER (Bardak İkonlu) -->
+        <!-- SICAK İÇECEKLER -->
         <details>
             <summary>SICAK İÇECEKLER</summary>
             <div class="item-list">
                 
-                <!-- Bardak İkonları Başlığı -->
                 <div class="size-header">
                     <div class="icon-sm">
-                        <!-- Küçük Bardak (Sıcak Kahve) -->
                         <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M5 8h14l-1.5 12h-11z"/><path d="M6 4h12v4H6z"/></svg>
                     </div>
                     <div class="icon-lg">
-                        <!-- Büyük Bardak (Uzun Takeaway) -->
                         <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none"><path d="M5 6h14l-1.5 15h-11z"/><path d="M6 2h12v4H6z"/></svg>
                     </div>
                 </div>
 
-                <!-- Ürünler -->
                 <div class="item">
                     <div class="item-name">Espresso</div>
                     <div class="price-col-wrapper">
@@ -352,7 +329,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <div class="item-name">Capicino</div>
+                    <div class="item-name">Cappuccino</div>
                     <div class="price-col-wrapper">
                         <div class="price-sm">210₺</div><div class="price-lg">235₺</div>
                     </div>
@@ -394,19 +371,19 @@
                     </div>
                 </div>
                 <div class="item">
-                    <div class="item-name">Toffy Nut Latte</div>
+                    <div class="item-name">Toffee Nut Latte</div>
                     <div class="price-col-wrapper">
                         <div class="price-sm">240₺</div><div class="price-lg">270₺</div>
                     </div>
                 </div>
                 <div class="item">
-                    <div class="item-name">Ginger Bread Latte</div>
+                    <div class="item-name">Gingerbread Latte</div>
                     <div class="price-col-wrapper">
                         <div class="price-sm">240₺</div><div class="price-lg">270₺</div>
                     </div>
                 </div>
                 <div class="item">
-                    <div class="item-name">Pumpkin Spys Latte</div>
+                    <div class="item-name">Pumpkin Spice Latte</div>
                     <div class="price-col-wrapper">
                         <div class="price-sm">240₺</div><div class="price-lg">270₺</div>
                     </div>
@@ -424,7 +401,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <div class="item-name">Pumpkin Spys Maciato</div>
+                    <div class="item-name">Pumpkin Spice Macchiato</div>
                     <div class="price-col-wrapper">
                         <div class="price-sm">250₺</div><div class="price-lg">280₺</div>
                     </div>
@@ -432,7 +409,7 @@
             </div>
         </details>
 
-        <!-- DEMLEME İÇECEKLER (Bardak İkonlu) -->
+        <!-- DEMLEME İÇECEKLER -->
         <details>
             <summary>DEMLEME İÇECEKLER</summary>
             <div class="item-list">
@@ -471,7 +448,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <div class="item-name">Chia Tea Latte</div>
+                    <div class="item-name">Chai Tea Latte</div>
                     <div class="price-col-wrapper">
                         <div class="price-sm">230₺</div><div class="price-lg">240₺</div>
                     </div>
@@ -482,7 +459,6 @@
                         <div class="price-sm">250₺</div><div class="price-lg">260₺</div>
                     </div>
                 </div>
-                <!-- Tek fiyatlıları büyük bardak sütununa (sağa) hizalıyoruz -->
                 <div class="item">
                     <div class="item-name">Bitki Çayları</div>
                     <div class="price-col-wrapper">
@@ -498,7 +474,7 @@
             <div class="item-list">
                 <div class="item"><div class="item-name">Ice Americano</div><div class="item-price">210₺</div></div>
                 <div class="item"><div class="item-name">Ice Latte</div><div class="item-price">250₺</div></div>
-                <div class="item"><div class="item-name">Ice Capicino</div><div class="item-price">250₺</div></div>
+                <div class="item"><div class="item-name">Ice Cappuccino</div><div class="item-price">250₺</div></div>
                 <div class="item"><div class="item-name">Ice White Mocha</div><div class="item-price">270₺</div></div>
                 <div class="item"><div class="item-name">Ice Mocha</div><div class="item-price">270₺</div></div>
                 <div class="item"><div class="item-name">Lotus Latte</div><div class="item-price">290₺</div></div>
