@@ -122,7 +122,7 @@
         /* --- RETRO BİLGİ BANDI --- */
         .info-bar {
             max-width: 600px;
-            margin: 0 auto 20px;
+            margin: 0 auto 12px;
             padding: 0 15px;
         }
 
@@ -145,6 +145,69 @@
         .info-bar-inner span {
             color: var(--primary-orange);
             font-weight: 700;
+        }
+
+        /* --- RETRO KAMPANYA ÇUBUĞU --- */
+        .promo-banner {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            padding: 0 15px;
+        }
+
+        .promo-banner-inner {
+            background: var(--gradient-orange);
+            color: #ffffff;
+            border-radius: 14px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 8px 25px rgba(212, 106, 56, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #FFFDF9;
+            animation: bannerPulse 3s infinite ease-in-out;
+        }
+
+        @keyframes bannerPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.01); box-shadow: 0 10px 30px rgba(212, 106, 56, 0.4); }
+            100% { transform: scale(1); }
+        }
+
+        .promo-icon-box {
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            color: #FFF;
+        }
+
+        .promo-details {
+            flex: 1;
+        }
+
+        .promo-tag {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            background: rgba(255, 255, 255, 0.25);
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 3px;
+        }
+
+        .promo-msg {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: 0.3px;
         }
 
         /* Menü Konteyner */
@@ -475,6 +538,19 @@
     <div class="info-bar">
         <div class="info-bar-inner">
             ✦ <span>Heffalump Bakırköy</span> &bull; En taze tatlar ve eşsiz kahve deneyimi
+        </div>
+    </div>
+
+    <!-- RETRO KAMPANYA ÇUBUĞU -->
+    <div class="promo-banner">
+        <div class="promo-banner-inner">
+            <div class="promo-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <div class="promo-details">
+                <span class="promo-tag">Günün Fırsatı</span>
+                <div class="promo-msg">Waffle Bowl + İçecek Sadece 380₺!</div>
+            </div>
         </div>
     </div>
 
