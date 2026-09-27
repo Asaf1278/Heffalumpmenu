@@ -34,59 +34,50 @@
             position: relative;
         }
 
-        /* --- DAHA BELİRGİN VE ÇOKLU PALMİYE YAPRAKLARI --- */
+        /* --- GERÇEKÇİ VE HİZALI PALMİYE YAPRAKLARI --- */
         .palm-leaf {
             position: fixed;
-            width: 220px; 
-            height: auto;
+            /* Ekranın %25'inden fazla büyümez, böylece asla ortada çakışmazlar */
+            width: 25vw; 
+            min-width: 130px;
+            max-width: 180px; 
             z-index: -1;
             pointer-events: none; 
-            opacity: 0.45; /* Daha belirgin! (Eskisi 0.18'di) */
+            opacity: 0.35; 
         }
 
-        /* Yaprak köklerinin ekran dışından gelmesi için dönüşüm noktası (alt orta) */
         .leaf-1 { /* Sol Üst */
-            top: -50px;
-            left: -50px;
+            top: -20px;
+            left: -20px;
             transform-origin: 50% 100%;
             animation: sway1 6s ease-in-out infinite alternate;
         }
         .leaf-2 { /* Sağ Orta */
-            top: 25%;
-            right: -80px;
+            top: 30%;
+            right: -30px;
+            transform: scaleX(-1) rotate(45deg);
             transform-origin: 50% 100%;
             animation: sway2 7s ease-in-out infinite alternate;
         }
         .leaf-3 { /* Sol Alt */
-            bottom: 20%;
-            left: -80px;
+            bottom: 10%;
+            left: -20px;
+            transform: rotate(-30deg);
             transform-origin: 50% 100%;
             animation: sway3 8s ease-in-out infinite alternate;
         }
         .leaf-4 { /* Sağ Alt */
-            bottom: -50px;
-            right: -50px;
+            bottom: -20px;
+            right: -20px;
+            transform: scaleX(-1) rotate(15deg);
             transform-origin: 50% 100%;
             animation: sway4 5s ease-in-out infinite alternate;
         }
 
-        /* Gerçekçi Rüzgar Animasyonları */
-        @keyframes sway1 {
-            0% { transform: rotate(120deg); }
-            100% { transform: rotate(135deg); }
-        }
-        @keyframes sway2 {
-            0% { transform: rotate(-75deg); }
-            100% { transform: rotate(-90deg); }
-        }
-        @keyframes sway3 {
-            0% { transform: rotate(60deg); }
-            100% { transform: rotate(80deg); }
-        }
-        @keyframes sway4 {
-            0% { transform: rotate(-30deg); }
-            100% { transform: rotate(-15deg); }
-        }
+        @keyframes sway1 { 0% { transform: rotate(0deg); } 100% { transform: rotate(10deg); } }
+        @keyframes sway2 { 0% { transform: scaleX(-1) rotate(35deg); } 100% { transform: scaleX(-1) rotate(50deg); } }
+        @keyframes sway3 { 0% { transform: rotate(-40deg); } 100% { transform: rotate(-20deg); } }
+        @keyframes sway4 { 0% { transform: scaleX(-1) rotate(5deg); } 100% { transform: scaleX(-1) rotate(25deg); } }
         /* ------------------------------------------------ */
 
         /* Header / Logo Alanı */
@@ -128,14 +119,14 @@
             position: relative;
         }
 
-        /* Akordiyon (Kategoriler) - Modernize Edilmiş Tuşlar */
+        /* Akordiyon (Kategoriler) */
         details {
             background-color: var(--box-bg);
             border-radius: 16px; 
             margin-bottom: 18px;
             box-shadow: 0 6px 16px rgba(255, 154, 85, 0.08); 
             border: 1px solid rgba(255, 154, 85, 0.1);
-            backdrop-filter: blur(8px); /* Arkadaki yaprakları bulandırarak yazıyı öne çıkarır */
+            backdrop-filter: blur(8px); 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -202,7 +193,7 @@
         .item {
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
+            align-items: center; /* İsim ve fiyatları dikeyde ortalar */
             padding: 14px 0;
             border-bottom: 1px dashed var(--border-color);
         }
@@ -215,7 +206,7 @@
             font-weight: 600;
             font-size: 15px;
             flex: 1;
-            padding-right: 15px;
+            padding-right: 10px;
             color: var(--text-color);
         }
 
@@ -228,6 +219,44 @@
             font-style: italic;
         }
 
+        /* --- YENİ BÜYÜK/KÜÇÜK BARDAK HİZALAMA SİSTEMİ --- */
+        .size-header {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            width: 120px;
+            margin-left: auto;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 5px;
+        }
+        
+        .icon-sm, .icon-lg {
+            width: 55px; /* Sütun genişliği */
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            color: var(--primary-orange);
+        }
+
+        /* Fiyat sütunları sarmalayıcı */
+        .price-col-wrapper {
+            display: flex;
+            gap: 10px;
+            width: 120px;
+            justify-content: flex-end;
+        }
+
+        /* Hizalanmış ayrı fiyat kutuları */
+        .price-sm, .price-lg {
+            width: 55px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--primary-orange);
+        }
+
+        /* Standart tek fiyatlı ürünler için */
         .item-price {
             font-weight: 700;
             font-size: 16px;
@@ -235,130 +264,46 @@
             white-space: nowrap;
         }
 
-        .size-header {
-            display: flex;
-            justify-content: flex-end;
-            font-size: 12px;
-            color: #999;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-        
-        .size-header span {
-            margin-left: 15px;
-            width: 50px;
-            text-align: center;
-        }
-
     </style>
 </head>
 <body>
 
-    <!-- 1. Yaprak: Sol Üst -->
-    <svg class="palm-leaf leaf-1" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- İç içe geçmeyen GERÇEKÇİ Palmiye SVG'leri -->
+    <svg class="palm-leaf leaf-1" viewBox="0 0 100 250" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <linearGradient id="palmGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#FF8C42" /> <!-- Biraz daha canlı turuncu -->
+                <stop offset="0%" stop-color="#FF8C42" />
                 <stop offset="100%" stop-color="#FFB98A" />
             </linearGradient>
         </defs>
-        <g fill="none" stroke="url(#palmGrad)" stroke-linecap="round">
-            <path d="M100,400 Q100,200 100,20" stroke-width="5"/>
-            <path d="M100,360 Q30,340 10,380" stroke-width="9"/>
-            <path d="M100,320 Q20,290 5,340" stroke-width="11"/>
-            <path d="M100,280 Q15,240 5,290" stroke-width="13"/>
-            <path d="M100,240 Q15,190 10,240" stroke-width="13"/>
-            <path d="M100,200 Q20,140 15,190" stroke-width="12"/>
-            <path d="M100,160 Q30,100 25,140" stroke-width="11"/>
-            <path d="M100,120 Q40,60 40,100" stroke-width="9"/>
-            <path d="M100,80 Q60,30 60,60" stroke-width="7"/>
-            <path d="M100,40 Q80,10 80,30" stroke-width="5"/>
-            <path d="M100,370 Q170,350 190,390" stroke-width="9"/>
-            <path d="M100,330 Q180,300 195,350" stroke-width="11"/>
-            <path d="M100,290 Q185,250 195,300" stroke-width="13"/>
-            <path d="M100,250 Q185,200 190,250" stroke-width="13"/>
-            <path d="M100,210 Q180,150 185,200" stroke-width="12"/>
-            <path d="M100,170 Q170,110 175,150" stroke-width="11"/>
-            <path d="M100,130 Q160,70 160,110" stroke-width="9"/>
-            <path d="M100,90 Q140,40 140,70" stroke-width="7"/>
-            <path d="M100,50 Q120,20 120,40" stroke-width="5"/>
+        <g stroke="url(#palmGrad)" fill="none" stroke-linecap="round">
+            <path d="M50,250 Q45,150 70,10" stroke-width="3"/>
+            <path d="M50,230 Q30,220 10,240 M49,210 Q25,190 5,215 M48,190 Q20,165 0,190 M47,170 Q15,140 -5,160 M48,150 Q10,115 -10,130 M50,130 Q15,90 -5,100 M53,110 Q20,70 5,75 M57,90 Q30,50 15,50 M62,70 Q40,30 25,25 M66,45 Q50,15 40,10" stroke-width="2"/>
+            <path d="M49,240 Q70,230 90,255 M49,220 Q75,200 95,230 M49,200 Q80,180 100,205 M49,180 Q85,155 105,180 M51,160 Q85,130 110,150 M54,140 Q90,105 115,120 M58,120 Q95,85 115,95 M64,100 Q95,65 115,70 M70,80 Q100,45 115,45 M75,60 Q100,30 115,25 M72,25 Q90,10 100,5" stroke-width="2"/>
         </g>
     </svg>
 
-    <!-- 2. Yaprak: Sağ Orta -->
-    <svg class="palm-leaf leaf-2" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" stroke="url(#palmGrad)" stroke-linecap="round">
-            <path d="M100,400 Q100,200 100,20" stroke-width="5"/>
-            <path d="M100,360 Q30,340 10,380" stroke-width="9"/>
-            <path d="M100,320 Q20,290 5,340" stroke-width="11"/>
-            <path d="M100,280 Q15,240 5,290" stroke-width="13"/>
-            <path d="M100,240 Q15,190 10,240" stroke-width="13"/>
-            <path d="M100,200 Q20,140 15,190" stroke-width="12"/>
-            <path d="M100,160 Q30,100 25,140" stroke-width="11"/>
-            <path d="M100,120 Q40,60 40,100" stroke-width="9"/>
-            <path d="M100,80 Q60,30 60,60" stroke-width="7"/>
-            <path d="M100,40 Q80,10 80,30" stroke-width="5"/>
-            <path d="M100,370 Q170,350 190,390" stroke-width="9"/>
-            <path d="M100,330 Q180,300 195,350" stroke-width="11"/>
-            <path d="M100,290 Q185,250 195,300" stroke-width="13"/>
-            <path d="M100,250 Q185,200 190,250" stroke-width="13"/>
-            <path d="M100,210 Q180,150 185,200" stroke-width="12"/>
-            <path d="M100,170 Q170,110 175,150" stroke-width="11"/>
-            <path d="M100,130 Q160,70 160,110" stroke-width="9"/>
-            <path d="M100,90 Q140,40 140,70" stroke-width="7"/>
-            <path d="M100,50 Q120,20 120,40" stroke-width="5"/>
+    <svg class="palm-leaf leaf-2" viewBox="0 0 100 250" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="url(#palmGrad)" fill="none" stroke-linecap="round">
+            <path d="M50,250 Q45,150 70,10" stroke-width="3"/>
+            <path d="M50,230 Q30,220 10,240 M49,210 Q25,190 5,215 M48,190 Q20,165 0,190 M47,170 Q15,140 -5,160 M48,150 Q10,115 -10,130 M50,130 Q15,90 -5,100 M53,110 Q20,70 5,75 M57,90 Q30,50 15,50 M62,70 Q40,30 25,25 M66,45 Q50,15 40,10" stroke-width="2"/>
+            <path d="M49,240 Q70,230 90,255 M49,220 Q75,200 95,230 M49,200 Q80,180 100,205 M49,180 Q85,155 105,180 M51,160 Q85,130 110,150 M54,140 Q90,105 115,120 M58,120 Q95,85 115,95 M64,100 Q95,65 115,70 M70,80 Q100,45 115,45 M75,60 Q100,30 115,25 M72,25 Q90,10 100,5" stroke-width="2"/>
         </g>
     </svg>
 
-    <!-- 3. Yaprak: Sol Alt -->
-    <svg class="palm-leaf leaf-3" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" stroke="url(#palmGrad)" stroke-linecap="round">
-            <path d="M100,400 Q100,200 100,20" stroke-width="5"/>
-            <path d="M100,360 Q30,340 10,380" stroke-width="9"/>
-            <path d="M100,320 Q20,290 5,340" stroke-width="11"/>
-            <path d="M100,280 Q15,240 5,290" stroke-width="13"/>
-            <path d="M100,240 Q15,190 10,240" stroke-width="13"/>
-            <path d="M100,200 Q20,140 15,190" stroke-width="12"/>
-            <path d="M100,160 Q30,100 25,140" stroke-width="11"/>
-            <path d="M100,120 Q40,60 40,100" stroke-width="9"/>
-            <path d="M100,80 Q60,30 60,60" stroke-width="7"/>
-            <path d="M100,40 Q80,10 80,30" stroke-width="5"/>
-            <path d="M100,370 Q170,350 190,390" stroke-width="9"/>
-            <path d="M100,330 Q180,300 195,350" stroke-width="11"/>
-            <path d="M100,290 Q185,250 195,300" stroke-width="13"/>
-            <path d="M100,250 Q185,200 190,250" stroke-width="13"/>
-            <path d="M100,210 Q180,150 185,200" stroke-width="12"/>
-            <path d="M100,170 Q170,110 175,150" stroke-width="11"/>
-            <path d="M100,130 Q160,70 160,110" stroke-width="9"/>
-            <path d="M100,90 Q140,40 140,70" stroke-width="7"/>
-            <path d="M100,50 Q120,20 120,40" stroke-width="5"/>
+    <svg class="palm-leaf leaf-3" viewBox="0 0 100 250" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="url(#palmGrad)" fill="none" stroke-linecap="round">
+            <path d="M50,250 Q45,150 70,10" stroke-width="3"/>
+            <path d="M50,230 Q30,220 10,240 M49,210 Q25,190 5,215 M48,190 Q20,165 0,190 M47,170 Q15,140 -5,160 M48,150 Q10,115 -10,130 M50,130 Q15,90 -5,100 M53,110 Q20,70 5,75 M57,90 Q30,50 15,50 M62,70 Q40,30 25,25 M66,45 Q50,15 40,10" stroke-width="2"/>
+            <path d="M49,240 Q70,230 90,255 M49,220 Q75,200 95,230 M49,200 Q80,180 100,205 M49,180 Q85,155 105,180 M51,160 Q85,130 110,150 M54,140 Q90,105 115,120 M58,120 Q95,85 115,95 M64,100 Q95,65 115,70 M70,80 Q100,45 115,45 M75,60 Q100,30 115,25 M72,25 Q90,10 100,5" stroke-width="2"/>
         </g>
     </svg>
 
-    <!-- 4. Yaprak: Sağ Alt -->
-    <svg class="palm-leaf leaf-4" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" stroke="url(#palmGrad)" stroke-linecap="round">
-            <path d="M100,400 Q100,200 100,20" stroke-width="5"/>
-            <path d="M100,360 Q30,340 10,380" stroke-width="9"/>
-            <path d="M100,320 Q20,290 5,340" stroke-width="11"/>
-            <path d="M100,280 Q15,240 5,290" stroke-width="13"/>
-            <path d="M100,240 Q15,190 10,240" stroke-width="13"/>
-            <path d="M100,200 Q20,140 15,190" stroke-width="12"/>
-            <path d="M100,160 Q30,100 25,140" stroke-width="11"/>
-            <path d="M100,120 Q40,60 40,100" stroke-width="9"/>
-            <path d="M100,80 Q60,30 60,60" stroke-width="7"/>
-            <path d="M100,40 Q80,10 80,30" stroke-width="5"/>
-            <path d="M100,370 Q170,350 190,390" stroke-width="9"/>
-            <path d="M100,330 Q180,300 195,350" stroke-width="11"/>
-            <path d="M100,290 Q185,250 195,300" stroke-width="13"/>
-            <path d="M100,250 Q185,200 190,250" stroke-width="13"/>
-            <path d="M100,210 Q180,150 185,200" stroke-width="12"/>
-            <path d="M100,170 Q170,110 175,150" stroke-width="11"/>
-            <path d="M100,130 Q160,70 160,110" stroke-width="9"/>
-            <path d="M100,90 Q140,40 140,70" stroke-width="7"/>
-            <path d="M100,50 Q120,20 120,40" stroke-width="5"/>
+    <svg class="palm-leaf leaf-4" viewBox="0 0 100 250" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="url(#palmGrad)" fill="none" stroke-linecap="round">
+            <path d="M50,250 Q45,150 70,10" stroke-width="3"/>
+            <path d="M50,230 Q30,220 10,240 M49,210 Q25,190 5,215 M48,190 Q20,165 0,190 M47,170 Q15,140 -5,160 M48,150 Q10,115 -10,130 M50,130 Q15,90 -5,100 M53,110 Q20,70 5,75 M57,90 Q30,50 15,50 M62,70 Q40,30 25,25 M66,45 Q50,15 40,10" stroke-width="2"/>
+            <path d="M49,240 Q70,230 90,255 M49,220 Q75,200 95,230 M49,200 Q80,180 100,205 M49,180 Q85,155 105,180 M51,160 Q85,130 110,150 M54,140 Q90,105 115,120 M58,120 Q95,85 115,95 M64,100 Q95,65 115,70 M70,80 Q100,45 115,45 M75,60 Q100,30 115,25 M72,25 Q90,10 100,5" stroke-width="2"/>
         </g>
     </svg>
 
@@ -370,30 +315,180 @@
 
     <main class="menu-container">
 
-        <!-- SICAK İÇECEKLER -->
+        <!-- SICAK İÇECEKLER (Bardak İkonlu) -->
         <details>
             <summary>SICAK İÇECEKLER</summary>
             <div class="item-list">
+                
+                <!-- Bardak İkonları Başlığı -->
                 <div class="size-header">
-                    <span>Küçük</span>
-                    <span>Büyük</span>
+                    <div class="icon-sm">
+                        <!-- Küçük Bardak (Sıcak Kahve) -->
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M5 8h14l-1.5 12h-11z"/><path d="M6 4h12v4H6z"/></svg>
+                    </div>
+                    <div class="icon-lg">
+                        <!-- Büyük Bardak (Uzun Takeaway) -->
+                        <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none"><path d="M5 6h14l-1.5 15h-11z"/><path d="M6 2h12v4H6z"/></svg>
+                    </div>
                 </div>
-                <div class="item"><div class="item-name">Espresso</div><div class="item-price">120₺ / 140₺</div></div>
-                <div class="item"><div class="item-name">Americano</div><div class="item-price">180₺ / 200₺</div></div>
-                <div class="item"><div class="item-name">Latte</div><div class="item-price">210₺ / 235₺</div></div>
-                <div class="item"><div class="item-name">Capicino</div><div class="item-price">210₺ / 235₺</div></div>
-                <div class="item"><div class="item-name">Flat White</div><div class="item-price">230₺ / 240₺</div></div>
-                <div class="item"><div class="item-name">Spanish Latte</div><div class="item-price">240₺ / 265₺</div></div>
-                <div class="item"><div class="item-name">Salted Caramel Latte</div><div class="item-price">245₺ / 270₺</div></div>
-                <div class="item"><div class="item-name">Mocha</div><div class="item-price">230₺ / 255₺</div></div>
-                <div class="item"><div class="item-name">White Mocha</div><div class="item-price">230₺ / 255₺</div></div>
-                <div class="item"><div class="item-name">Nutella Latte</div><div class="item-price">250₺ / 275₺</div></div>
-                <div class="item"><div class="item-name">Toffy Nut Latte</div><div class="item-price">240₺ / 270₺</div></div>
-                <div class="item"><div class="item-name">Ginger Bread Latte</div><div class="item-price">240₺ / 270₺</div></div>
-                <div class="item"><div class="item-name">Pumpkin Spys Latte</div><div class="item-price">240₺ / 270₺</div></div>
-                <div class="item"><div class="item-name">Lotus Latte</div><div class="item-price">260₺ / 280₺</div></div>
-                <div class="item"><div class="item-name">Tiramisu Latte</div><div class="item-price">240₺ / 270₺</div></div>
-                <div class="item"><div class="item-name">Pumpkin Spys Maciato</div><div class="item-price">250₺ / 280₺</div></div>
+
+                <!-- Ürünler -->
+                <div class="item">
+                    <div class="item-name">Espresso</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">120₺</div><div class="price-lg">140₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Americano</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">180₺</div><div class="price-lg">200₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Latte</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">210₺</div><div class="price-lg">235₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Capicino</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">210₺</div><div class="price-lg">235₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Flat White</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">230₺</div><div class="price-lg">240₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Spanish Latte</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">240₺</div><div class="price-lg">265₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Salted Caramel Latte</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">245₺</div><div class="price-lg">270₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Mocha</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">230₺</div><div class="price-lg">255₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">White Mocha</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">230₺</div><div class="price-lg">255₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Nutella Latte</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">250₺</div><div class="price-lg">275₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Toffy Nut Latte</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">240₺</div><div class="price-lg">270₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Ginger Bread Latte</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">240₺</div><div class="price-lg">270₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Pumpkin Spys Latte</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">240₺</div><div class="price-lg">270₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Lotus Latte</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">260₺</div><div class="price-lg">280₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Tiramisu Latte</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">240₺</div><div class="price-lg">270₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Pumpkin Spys Maciato</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">250₺</div><div class="price-lg">280₺</div>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <!-- DEMLEME İÇECEKLER (Bardak İkonlu) -->
+        <details>
+            <summary>DEMLEME İÇECEKLER</summary>
+            <div class="item-list">
+                
+                <div class="size-header">
+                    <div class="icon-sm">
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M5 8h14l-1.5 12h-11z"/><path d="M6 4h12v4H6z"/></svg>
+                    </div>
+                    <div class="icon-lg">
+                        <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none"><path d="M5 6h14l-1.5 15h-11z"/><path d="M6 2h12v4H6z"/></svg>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-name">Salep</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">240₺</div><div class="price-lg">250₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Türk Kahvesi</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">160₺</div><div class="price-lg">190₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Çay</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">80₺</div><div class="price-lg">90₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Sıcak Çikolata</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">220₺</div><div class="price-lg">230₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">Chia Tea Latte</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">230₺</div><div class="price-lg">240₺</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-name">V-60 Latte</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm">250₺</div><div class="price-lg">260₺</div>
+                    </div>
+                </div>
+                <!-- Tek fiyatlıları büyük bardak sütununa (sağa) hizalıyoruz -->
+                <div class="item">
+                    <div class="item-name">Bitki Çayları</div>
+                    <div class="price-col-wrapper">
+                        <div class="price-sm"></div><div class="price-lg">180₺</div>
+                    </div>
+                </div>
             </div>
         </details>
 
@@ -442,20 +537,6 @@
                 <div class="item"><div class="item-name">Ube Coconut Latte</div><div class="item-price">280₺</div></div>
                 <div class="item"><div class="item-name">Ube White Choco. Latte</div><div class="item-price">280₺</div></div>
                 <div class="item"><div class="item-name">Mekselina Blossom</div><div class="item-price">290₺</div></div>
-            </div>
-        </details>
-
-        <!-- DEMLEME İÇECEKLER -->
-        <details>
-            <summary>DEMLEME İÇECEKLER</summary>
-            <div class="item-list">
-                <div class="item"><div class="item-name">Salep</div><div class="item-price">240₺ / 250₺</div></div>
-                <div class="item"><div class="item-name">Türk Kahvesi</div><div class="item-price">160₺ / 190₺</div></div>
-                <div class="item"><div class="item-name">Çay</div><div class="item-price">80₺ / 90₺</div></div>
-                <div class="item"><div class="item-name">Sıcak Çikolata</div><div class="item-price">220₺ / 230₺</div></div>
-                <div class="item"><div class="item-name">Chia Tea Latte</div><div class="item-price">230₺ / 240₺</div></div>
-                <div class="item"><div class="item-name">V-60 Latte</div><div class="item-price">250₺ / 260₺</div></div>
-                <div class="item"><div class="item-name">Bitki Çayları</div><div class="item-price">180₺</div></div>
             </div>
         </details>
         
