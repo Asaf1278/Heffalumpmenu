@@ -14,7 +14,7 @@
             --text-color: #4A4A4A;     
             --primary-orange: #FFA060; 
             --gradient-orange: linear-gradient(135deg, #FFB98A 0%, #FF9A55 100%); 
-            --box-bg: rgba(255, 255, 255, 0.95); /* Arkadaki hareketin hafifçe belli olması için kutuları çok az şeffaf yaptık */
+            --box-bg: rgba(255, 255, 255, 0.95); 
             --border-color: #F0E9E4;   
         }
 
@@ -24,40 +24,52 @@
             padding: 0;
         }
 
-        html {
-            background-color: var(--bg-color);
-        }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
             padding-bottom: 60px;
+            overflow-x: hidden; /* Kenarlardan taşmayı engeller */
             position: relative;
         }
 
-        /* --- HAREKETLİ PALMİYE ARKA PLANI --- */
-        .animated-bg {
+        /* --- KENARLARDAKİ HAREKETLİ PALMİYE YAPRAKLARI --- */
+        .palm-leaf {
             position: fixed;
-            top: 0; 
-            left: 0; 
-            width: 100vw; 
-            height: 100vh;
-            /* Palmiye görseli - İsterseniz bu linki kendi görsel linkinizle değiştirebilirsiniz */
-            background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.12; /* %12 görünürlük. Yazıları engellemez, çok şık durur. */
+            width: 220px;
+            height: auto;
             z-index: -1;
-            /* 40 saniyede bir yavaşça hareket edip geri döner (rüzgar efekti) */
-            animation: slowPan 40s ease-in-out infinite alternate;
+            pointer-events: none; /* Yaprakların tıklamayı engellememesi için */
+            opacity: 0.25; /* Rengi menüyle uyumlu soft bir tonda */
         }
 
-        @keyframes slowPan {
-            0% { transform: scale(1.1) translate(1%, 1%); }
-            100% { transform: scale(1.1) translate(-1%, -1%); }
+        .leaf-left {
+            top: 5%;
+            left: -70px;
+            transform-origin: bottom left;
+            animation: swayLeft 6s ease-in-out infinite alternate;
         }
-        /* ------------------------------------ */
+
+        .leaf-right {
+            bottom: 5%;
+            right: -70px;
+            transform: scaleX(-1);
+            transform-origin: bottom left; 
+            animation: swayRight 7s ease-in-out infinite alternate;
+        }
+
+        /* Rüzgarda sallanma animasyonları */
+        @keyframes swayLeft {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(12deg); }
+        }
+
+        @keyframes swayRight {
+            0% { transform: scaleX(-1) rotate(-8deg); }
+            100% { transform: scaleX(-1) rotate(6deg); }
+        }
+        /* ------------------------------------------------ */
 
         /* Header / Logo Alanı */
         header {
@@ -105,7 +117,7 @@
             margin-bottom: 18px;
             box-shadow: 0 6px 16px rgba(255, 154, 85, 0.08); 
             border: 1px solid rgba(255, 154, 85, 0.1);
-            backdrop-filter: blur(5px); /* Arka planı hafifçe buzlu cam gibi yapar */
+            backdrop-filter: blur(5px); 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -235,8 +247,15 @@
 </head>
 <body>
 
-    <!-- Animasyonlu Arka Plan Katmanı -->
-    <div class="animated-bg"></div>
+    <!-- Sol Üstteki Palmiye Yaprağı -->
+    <svg class="palm-leaf leaf-left" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--primary-orange)" d="M100,400 C80,300 20,200 0,100 C40,120 70,160 80,200 C70,140 100,80 150,50 C120,110 100,160 95,220 C130,170 170,140 200,160 C150,190 110,230 100,260 C140,240 170,250 180,290 C130,280 110,310 100,340 C110,360 100,380 100,400 Z"></path>
+    </svg>
+
+    <!-- Sağ Alttaki Palmiye Yaprağı -->
+    <svg class="palm-leaf leaf-right" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--primary-orange)" d="M100,400 C80,300 20,200 0,100 C40,120 70,160 80,200 C70,140 100,80 150,50 C120,110 100,160 95,220 C130,170 170,140 200,160 C150,190 110,230 100,260 C140,240 170,250 180,290 C130,280 110,310 100,340 C110,360 100,380 100,400 Z"></path>
+    </svg>
 
     <header>
         <img src="logo.png" alt="Heffalump Logo" class="logo" onerror="this.style.display='none'"> 
