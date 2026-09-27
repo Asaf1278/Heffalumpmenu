@@ -103,13 +103,13 @@
             letter-spacing: 3px;
         }
 
-        /* --- ÜST YATAY KATEGORİ SEKMELERİ --- */
+        /* --- ÜST YATAY KATEGORİ SEKMELERİ (BÜYÜTÜLDÜ) --- */
         .category-nav {
             display: flex;
-            gap: 12px;
+            gap: 15px;
             overflow-x: auto;
-            padding: 10px 15px 25px;
-            max-width: 650px;
+            padding: 10px 15px 30px;
+            max-width: 700px;
             margin: 0 auto;
             scrollbar-width: none; 
         }
@@ -117,29 +117,29 @@
 
         .cat-btn {
             background: #ffffff;
-            border: 1px solid rgba(255, 154, 85, 0.2);
+            border: 1.5px solid rgba(255, 154, 85, 0.25);
             color: var(--text-color);
-            padding: 8px 16px;
-            border-radius: 30px;
+            padding: 12px 22px; /* Daha geniş ve ferah alan */
+            border-radius: 35px;
             font-family: 'Poppins', sans-serif;
-            font-size: 13px;
+            font-size: 15px; /* Yazı boyutu büyütüldü */
             font-weight: 600;
             white-space: nowrap;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.04);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
-        /* Sekme Üzerindeki Gerçek Resim İkonları */
+        /* Sekme Üzerindeki Gerçek Resim İkonları (Büyütüldü) */
         .cat-img-icon {
-            width: 24px;
-            height: 24px;
+            width: 32px; /* İkon boyutu büyütüldü */
+            height: 32px;
             border-radius: 50%;
             object-fit: cover;
-            border: 1px solid var(--primary-orange);
+            border: 1.5px solid var(--primary-orange);
         }
 
         .cat-btn:hover {
@@ -150,7 +150,7 @@
         .cat-btn.active {
             background: var(--gradient-orange);
             color: #ffffff;
-            box-shadow: 0 6px 15px rgba(255, 154, 85, 0.35);
+            box-shadow: 0 8px 20px rgba(255, 154, 85, 0.4);
             border-color: transparent;
         }
 
@@ -174,12 +174,12 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04); 
             border: 1px solid rgba(255, 154, 85, 0.15);
             backdrop-filter: blur(10px); 
-            display: none; /* Varsayılan olarak gizli */
+            display: none; 
             animation: fadeInSection 0.5s ease-in-out forwards;
         }
 
         .menu-section.active-section {
-            display: block; /* Aktif olan kategori görünür */
+            display: block; 
         }
 
         @keyframes fadeInSection {
@@ -337,31 +337,31 @@
         <p class="subtitle">ÖZENLE HAZIRLANMIŞ LEZZETLER</p>
     </header>
 
-    <!-- ÜST KISIMDA YAN YANA GERÇEK RESİMLİ KATEGORİ SEKMELERİ -->
+    <!-- ÜST KISIMDA BÜYÜTÜLMÜŞ KATEGORİ SEKMELERİ -->
     <nav class="category-nav">
         <button class="cat-btn active" onclick="switchCategory('cat-sicak', this)">
-            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=100&q=80" class="cat-img-icon" alt="Sıcak"> Sıcak
+            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=120&q=80" class="cat-img-icon" alt="Sıcak"> Sıcak
         </button>
         <button class="cat-btn" onclick="switchCategory('cat-demleme', this)">
-            <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=100&q=80" class="cat-img-icon" alt="Demleme"> Demleme
+            <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=120&q=80" class="cat-img-icon" alt="Demleme"> Demleme
         </button>
         <button class="cat-btn" onclick="switchCategory('cat-soguk', this)">
-            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=100&q=80" class="cat-img-icon" alt="Soğuk"> Soğuk
+            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=120&q=80" class="cat-img-icon" alt="Soğuk"> Soğuk
         </button>
         <button class="cat-btn" onclick="switchCategory('cat-refresh', this)">
-            <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=100&q=80" class="cat-img-icon" alt="Refreshalar"> Refreshalar
+            <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=120&q=80" class="cat-img-icon" alt="Refreshalar"> Refreshalar
         </button>
         <button class="cat-btn" onclick="switchCategory('cat-matcha', this)">
-            <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=100&q=80" class="cat-img-icon" alt="Matcha"> Matcha & Ube
+            <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=120&q=80" class="cat-img-icon" alt="Matcha"> Matcha & Ube
         </button>
         <button class="cat-btn" onclick="switchCategory('cat-blended', this)">
-            <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=100&q=80" class="cat-img-icon" alt="Blended"> Blended
+            <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=120&q=80" class="cat-img-icon" alt="Blended"> Blended
         </button>
         <button class="cat-btn" onclick="switchCategory('cat-tatli', this)">
-            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=100&q=80" class="cat-img-icon" alt="Tatlılar"> Tatlılar
+            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=120&q=80" class="cat-img-icon" alt="Tatlılar"> Tatlılar
         </button>
         <button class="cat-btn" onclick="switchCategory('cat-kahvalti', this)">
-            <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=100&q=80" class="cat-img-icon" alt="Kahvaltı"> Kahvaltı
+            <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=120&q=80" class="cat-img-icon" alt="Kahvaltı"> Kahvaltı
         </button>
     </nav>
 
@@ -504,14 +504,11 @@
     </main>
 
     <script>
-        // Üstteki butonlara basıldığında ilgili kategoriyi açan ve diğerlerini gizleyen fonksiyon
         function switchCategory(targetId, clickedBtn) {
-            // Butonların aktiflik durumunu güncelle
             const buttons = document.querySelectorAll(".cat-btn");
             buttons.forEach(btn => btn.classList.remove("active"));
             clickedBtn.classList.add("active");
 
-            // Bölümleri göster/gizle
             const sections = document.querySelectorAll(".menu-section");
             sections.forEach(section => {
                 if (section.id === targetId) {
@@ -521,8 +518,7 @@
                 }
             });
 
-            // Sayfanın en üstüne doğru hafif bir kaydırma yap
-            window.scrollTo({ top: 120, behavior: 'smooth' });
+            window.scrollTo({ top: 130, behavior: 'smooth' });
         }
     </script>
 </body>
