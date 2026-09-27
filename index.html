@@ -103,7 +103,7 @@
             letter-spacing: 3px;
         }
 
-        /* --- ÜST YATAY KATEGORİ SEKMELERİ (BÜYÜTÜLDÜ) --- */
+        /* --- ÜST YATAY KATEGORİ SEKMELERİ --- */
         .category-nav {
             display: flex;
             gap: 15px;
@@ -119,10 +119,10 @@
             background: #ffffff;
             border: 1.5px solid rgba(255, 154, 85, 0.25);
             color: var(--text-color);
-            padding: 12px 22px; /* Daha geniş ve ferah alan */
+            padding: 12px 22px;
             border-radius: 35px;
             font-family: 'Poppins', sans-serif;
-            font-size: 15px; /* Yazı boyutu büyütüldü */
+            font-size: 15px;
             font-weight: 600;
             white-space: nowrap;
             cursor: pointer;
@@ -133,9 +133,8 @@
             gap: 10px;
         }
 
-        /* Sekme Üzerindeki Gerçek Resim İkonları (Büyütüldü) */
         .cat-img-icon {
-            width: 32px; /* İkon boyutu büyütüldü */
+            width: 32px;
             height: 32px;
             border-radius: 50%;
             object-fit: cover;
@@ -210,7 +209,23 @@
             border-bottom-color: transparent;
         }
 
-        .item-name-group { flex: 1; padding-right: 10px; }
+        .item-name-group { 
+            flex: 1; 
+            padding-right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Ürün Yanındaki Ufak Gerçekçi Görsel */
+        .item-thumb {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgba(255, 154, 85, 0.3);
+            flex-shrink: 0;
+        }
 
         .item-name {
             font-weight: 600;
@@ -337,7 +352,7 @@
         <p class="subtitle">ÖZENLE HAZIRLANMIŞ LEZZETLER</p>
     </header>
 
-    <!-- ÜST KISIMDA BÜYÜTÜLMÜŞ KATEGORİ SEKMELERİ -->
+    <!-- ÜST KISIMDA KATEGORİ SEKMELERİ -->
     <nav class="category-nav">
         <button class="cat-btn active" onclick="switchCategory('cat-sicak', this)">
             <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=120&q=80" class="cat-img-icon" alt="Sıcak"> Sıcak
@@ -379,22 +394,22 @@
                     </div>
                 </div>
 
-                <div class="item"><div class="item-name-group"><div class="item-name">Espresso</div></div><div class="price-col-wrapper"><div class="price-sm">120₺</div><div class="price-lg">140₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Americano</div></div><div class="price-col-wrapper"><div class="price-sm">180₺</div><div class="price-lg">200₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Latte</div></div><div class="price-col-wrapper"><div class="price-sm">210₺</div><div class="price-lg">235₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Cappuccino</div></div><div class="price-col-wrapper"><div class="price-sm">210₺</div><div class="price-lg">235₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Flat White</div></div><div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">240₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Spanish Latte</div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">265₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Salted Caramel Latte</div></div><div class="price-col-wrapper"><div class="price-sm">245₺</div><div class="price-lg">270₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Mocha</div></div><div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">255₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">White Mocha</div></div><div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">255₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Nutella Latte</div></div><div class="price-col-wrapper"><div class="price-sm">250₺</div><div class="price-lg">275₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Toffee Nut Latte</div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Gingerbread Latte</div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Pumpkin Spice Latte <span class="badge-popular">Popüler</span></div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Lotus Latte</div></div><div class="price-col-wrapper"><div class="price-sm">260₺</div><div class="price-lg">280₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Tiramisu Latte</div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Pumpkin Spice Macchiato</div></div><div class="price-col-wrapper"><div class="price-sm">250₺</div><div class="price-lg">280₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Espresso</div></div><div class="price-col-wrapper"><div class="price-sm">120₺</div><div class="price-lg">140₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Americano</div></div><div class="price-col-wrapper"><div class="price-sm">180₺</div><div class="price-lg">200₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Latte</div></div><div class="price-col-wrapper"><div class="price-sm">210₺</div><div class="price-lg">235₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Cappuccino</div></div><div class="price-col-wrapper"><div class="price-sm">210₺</div><div class="price-lg">235₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Flat White</div></div><div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">240₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Spanish Latte</div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">265₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1530373239216-42518e6b4025?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Salted Caramel Latte</div></div><div class="price-col-wrapper"><div class="price-sm">245₺</div><div class="price-lg">270₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1578314675249-a6919f30ce45?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Mocha</div></div><div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">255₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">White Mocha</div></div><div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">255₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1595928642587-c5aeee63910a?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Nutella Latte <span class="badge-popular">Popüler</span></div></div><div class="price-col-wrapper"><div class="price-sm">250₺</div><div class="price-lg">275₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1497636577773-f1231844b336?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Toffee Nut Latte</div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Gingerbread Latte</div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1507133754629-994f830aef75?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Pumpkin Spice Latte <span class="badge-popular">Popüler</span></div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Lotus Latte</div></div><div class="price-col-wrapper"><div class="price-sm">260₺</div><div class="price-lg">280₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Tiramisu Latte</div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">270₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Pumpkin Spice Caramel Macchiato</div></div><div class="price-col-wrapper"><div class="price-sm">250₺</div><div class="price-lg">280₺</div></div></div>
             </div>
         </div>
 
@@ -410,94 +425,94 @@
                     </div>
                 </div>
 
-                <div class="item"><div class="item-name-group"><div class="item-name">Salep</div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">250₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Türk Kahvesi</div></div><div class="price-col-wrapper"><div class="price-sm">160₺</div><div class="price-lg">190₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Çay</div></div><div class="price-col-wrapper"><div class="price-sm">80₺</div><div class="price-lg">90₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Sıcak Çikolata</div></div><div class="price-col-wrapper"><div class="price-sm">220₺</div><div class="price-lg">230₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Chai Tea Latte</div></div><div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">240₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">V-60 Latte</div></div><div class="price-col-wrapper"><div class="price-sm">250₺</div><div class="price-lg">260₺</div></div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Bitki Çayları</div></div><div class="price-col-wrapper"><div class="price-sm"></div><div class="price-lg">180₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Salep</div></div><div class="price-col-wrapper"><div class="price-sm">240₺</div><div class="price-lg">250₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Türk Kahvesi</div></div><div class="price-col-wrapper"><div class="price-sm">160₺</div><div class="price-lg">190₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Çay</div></div><div class="price-col-wrapper"><div class="price-sm">80₺</div><div class="price-lg">90₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1578314675249-a6919f30ce45?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Sıcak Çikolata</div></div><div class="price-col-wrapper"><div class="price-sm">220₺</div><div class="price-lg">230₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Chai Tea Latte</div></div><div class="price-col-wrapper"><div class="price-sm">230₺</div><div class="price-lg">240₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">V-60 Latte</div></div><div class="price-col-wrapper"><div class="price-sm">250₺</div><div class="price-lg">260₺</div></div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Bitki Çayları</div></div><div class="price-col-wrapper"><div class="price-sm"></div><div class="price-lg">180₺</div></div></div>
             </div>
         </div>
 
         <!-- 3. SOĞUK KAHVELER -->
         <div id="cat-soguk" class="menu-section">
             <div class="item-list">
-                <div class="item"><div class="item-name-group"><div class="item-name">Ice Americano</div></div><div class="item-price">210₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Ice Latte</div></div><div class="item-price">250₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Ice Cappuccino</div></div><div class="item-price">250₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Ice White Mocha</div></div><div class="item-price">270₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Ice Mocha</div></div><div class="item-price">270₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Lotus Latte</div></div><div class="item-price">290₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Ice Nutella Latte</div></div><div class="item-price">280₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Ice Tiramisu Latte</div></div><div class="item-price">280₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Ice Italian Latte</div></div><div class="item-price">280₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Ice Brown Sugar Latte</div></div><div class="item-price">260₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Ice Waffle Latte</div></div><div class="item-price">290₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Ice Americano</div></div><div class="item-price">210₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Ice Latte</div></div><div class="item-price">250₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Ice Cappuccino</div></div><div class="item-price">250₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Ice White Mocha</div></div><div class="item-price">270₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1578314675249-a6919f30ce45?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Ice Mocha</div></div><div class="item-price">270₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Lotus Latte</div></div><div class="item-price">290₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1595928642587-c5aeee63910a?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Ice Nutella Latte</div></div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Ice Tiramisu Latte</div></div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Ice Italian Latte</div></div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1530373239216-42518e6b4025?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Ice Brown Sugar Latte</div></div><div class="item-price">260₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Ice Waffle Latte</div></div><div class="item-price">290₺</div></div>
             </div>
         </div>
 
         <!-- 4. REFRESHALAR -->
         <div id="cat-refresh" class="menu-section">
             <div class="item-list">
-                <div class="item"><div class="item-name-group"><div class="item-name">Cool Lime/Berry Hibiscus</div></div><div class="item-price">260₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Fresh Lime</div></div><div class="item-price">270₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Mango Ananas/Orange Mango</div></div><div class="item-price">260₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Zeki Müren <span class="badge-popular">Popüler</span></div></div><div class="item-price">280₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Mango Dragon Fruit</div></div><div class="item-price">270₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Virgin Mojito / Limonata</div></div><div class="item-price">260₺ / 190₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Mango Passion Fruit</div></div><div class="item-price">270₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Cherry Refresha</div><span class="item-desc">El yapımı reçelli</span></div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Cool Lime/Berry Hibiscus</div></div><div class="item-price">260₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Fresh Lime</div></div><div class="item-price">270₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Mango Ananas/Orange Mango</div></div><div class="item-price">260₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1541658016709-82535e94bc69?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Zeki Müren <span class="badge-popular">Popüler</span></div></div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Mango Dragon Fruit</div></div><div class="item-price">270₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Virgin Mojito / Limonata</div></div><div class="item-price">260₺ / 190₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Mango Passion Fruit</div></div><div class="item-price">270₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Cherry Refresha</div><span class="item-desc">El yapımı reçelli</span></div><div class="item-price">280₺</div></div>
             </div>
         </div>
 
         <!-- 5. MATCHA & UBE -->
         <div id="cat-matcha" class="menu-section">
             <div class="item-list">
-                <div class="item"><div class="item-name-group"><div class="item-name">Matcha Latte</div></div><div class="item-price">260₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Strawberry Matcha Latte</div></div><div class="item-price">280₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Vanilla Matcha Latte</div></div><div class="item-price">280₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Ube Latte</div></div><div class="item-price">260₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Ube Matcha Latte</div></div><div class="item-price">280₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Ube Coconut Latte</div></div><div class="item-price">280₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Ube White Choco. Latte</div></div><div class="item-price">280₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Mekselina Blossom</div></div><div class="item-price">290₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Matcha Latte</div></div><div class="item-price">260₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Strawberry Matcha Latte</div></div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Vanilla Matcha Latte</div></div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Ube Latte</div></div><div class="item-price">260₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Ube Matcha Latte</div></div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Ube Coconut Latte</div></div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Ube White Choco. Latte</div></div><div class="item-price">280₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Mekselina Blossom</div></div><div class="item-price">290₺</div></div>
             </div>
         </div>
         
         <!-- 6. BLENDED İÇECEKLER -->
         <div id="cat-blended" class="menu-section">
             <div class="item-list">
-                <div class="item"><div class="item-name-group"><div class="item-name">Çikolata/Çilek/Karamel Milkshake</div></div><div class="item-price">270₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Lotus Banana Milkshake</div></div><div class="item-price">290₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Afogato</div></div><div class="item-price">210₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Espresso Frappe</div></div><div class="item-price">250₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Çikolata/Karamel Frappe</div></div><div class="item-price">270₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Lotus Frappe</div></div><div class="item-price">290₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Orman Meyve/Mango Frozen</div></div><div class="item-price">260₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Çikolata/Çilek/Karamel Milkshake</div></div><div class="item-price">270₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Lotus Banana Milkshake</div></div><div class="item-price">290₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Afogato</div></div><div class="item-price">210₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Espresso Frappe</div></div><div class="item-price">250₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1578314675249-a6919f30ce45?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Çikolata/Karamel Frappe</div></div><div class="item-price">270₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Lotus Frappe</div></div><div class="item-price">290₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Orman Meyve/Mango Frozen</div></div><div class="item-price">260₺</div></div>
             </div>
         </div>
 
         <!-- 7. TATLILAR -->
         <div id="cat-tatli" class="menu-section">
             <div class="item-list">
-                <div class="item"><div class="item-name-group"><div class="item-name">Çilekli Mug</div></div><div class="item-price">350₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Polka / Dubai Gecesi <span class="badge-popular">Popüler</span></div></div><div class="item-price">380₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">San Sebastian / Cheesecake</div></div><div class="item-price">320₺ / 350₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Lotus Tart / Spoonfull</div></div><div class="item-price">370₺ / 360₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Lotus Mono Pasta</div></div><div class="item-price">420₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Tiramisu Box</div></div><div class="item-price">360₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Waffle Bowl + İçecek</div></div><div class="item-price">380₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Bakırköyün Delisi <span class="badge-popular">Popüler</span></div><span class="item-desc">(Tiramisu Waf.)</span></div><div class="item-price">395₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Çilekli Mug</div></div><div class="item-price">350₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Polka / Dubai Gecesi <span class="badge-popular">Popüler</span></div></div><div class="item-price">380₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">San Sebastian / Cheesecake</div></div><div class="item-price">320₺ / 350₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Lotus Tart / Spoonfull</div></div><div class="item-price">370₺ / 360₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Lotus Mono Pasta</div></div><div class="item-price">420₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Tiramisu Box</div></div><div class="item-price">360₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Waffle Bowl + İçecek</div></div><div class="item-price">380₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Bakırköyün Delisi <span class="badge-popular">Popüler</span></div><span class="item-desc">(Tiramisu Waf.)</span></div><div class="item-price">395₺</div></div>
             </div>
         </div>
 
         <!-- 8. KAHVALTI -->
         <div id="cat-kahvalti" class="menu-section">
             <div class="item-list">
-                <div class="item"><div class="item-name-group"><div class="item-name">2 Kişilik Serpme</div><span class="item-desc">(Piknik)</span></div><div class="item-price">2500₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Hızlı Kahvaltı</div><span class="item-desc">(1 Kişilik)</span></div><div class="item-price">750₺</div></div>
-                <div class="item"><div class="item-name-group"><div class="item-name">Mix Sandwich</div></div><div class="item-price">345₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">2 Kişilik Serpme</div><span class="item-desc">(Piknik)</span></div><div class="item-price">2500₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Hızlı Kahvaltı</div><span class="item-desc">(1 Kişilik)</span></div><div class="item-price">750₺</div></div>
+                <div class="item"><div class="item-name-group"><img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=80&q=80" class="item-thumb"><div class="item-name">Mix Sandwich</div></div><div class="item-price">345₺</div></div>
             </div>
         </div>
 
